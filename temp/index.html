@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Boxicons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Login Section Start -->
+    <!-- <section class="login">
+    <div class="login-container">
+      <div class="left-content">
+        <img src="./assets/logo-image.png" alt="logo">
+        <h2>Login to Your Account</h2>
+        <span>The faster you login, the faster we get to work</span>
+        <form id="login-form">
+          <label for="login-email">Email</label>
+          <input
+            type="email"
+            id="login-email"
+            placeholder="Enter email address ..."
+            autocomplete="off"
+            required
+          />
+          <label for="login-password">Password</label>
+          <input
+            type="password"
+            id="login-password"
+            placeholder="Enter password ..."
+            autocomplete="off"
+            required
+          />
+          <button type="submit">Login</button>
+        </form>
+        <p>Or sign in with</p>
+        <div class="google-box">
+        </div>
+        <p>Don't have an account? <a href="#">Register here</a></p>
+      </div>
+      <div class="right-content">
+        <img src="./assets/login-image.jpg" alt="">
+      </div>
+    </div>
+  </section> -->
+    <!-- Login Section End -->
+
+    <!-- register Section Start -->
+    <!-- <section class="register">
+    <div class="register-container">
+      <div class="left-content">
+        <img src="./assets/logo-image.png" alt="logo">
+        <h2>Create Your Account</h2>
+        <span>Let's get started by creating your account first</span>
+        <form id="register-form">
+          <label for="register-username">Username</label>
+          <input
+            type="username"
+            id="register-username"
+            placeholder="Enter username ..."
+            autocomplete="off"
+            required
+          />
+          <label for="register-email">Email</label>
+          <input
+            type="email"
+            id="register-email"
+            placeholder="Enter email address ..."
+            autocomplete="off"
+            required
+          />
+          <label for="register-password">Password</label>
+          <input
+            type="password"
+            id="register-password"
+            placeholder="Enter password ..."
+            autocomplete="off"
+            required
+          />
+          <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="#">Login here</a></p>
+      </div>
+      <div class="right-content">
+        <img src="./assets/login-image.jpg" alt="">
+      </div>
+    </div>
+  </section> -->
+    <!-- register Section End -->
+
+    <!-- Schedule Model Section Start -->
+    <!-- <section class="schedule-model">
+    <div class="schedule-model-container">
+      <h2>Type Of Schedules</h2>
+      <hr>
+      <div class="schedule-content">
+        <div class="schedule-button">
+          <i class='bx bx-left-arrow-alt'></i>
+          <p>ADVANCE</p>
+        </div>
+        <div class="schedule-button">
+          <i class='bx bx-right-arrow-alt' ></i>
+          <p>BEGINNER</p>
+        </div>   
+      </div>
+      <div class="schedule-description">
+        <i class='bx bxs-info-circle' ></i>
+        <p>- Choose the advanced one if you want to make a costumized Choose</p>
+        <p>- Choose the beginner one if you're not sure about what you want to learn</p>
+      </div>
+    </div>
+  </section> -->
+    <!-- Schedule Model Section End -->
+
+    <!-- Advance Model Section Start -->
+    <!-- <section class="advance-model">
+    <div class="advance-model-container">
+      <h2>Advance Schedule</h2>
+      <hr>
+      <form id="advance-form">
+        <label for="advance-description">Enter description for your schedule details</label>
+        <textarea
+          id="advance-description"
+          rows="3"
+          placeholder="Enter your description ..."
+          autocomplete="off"
+        ></textarea>
+        <button type="submit">Generate</button>
+      </form>
+    </div>
+  </section> -->
+    <!-- Advance Model Section End -->
+
+    <!-- Question Section Start (Beginner) -->
+    <!-- <section class="question">
+    <div class="question-container">
+      <h4>Question 6/13</h4>
+      <p>Which Javascript Framework you want to learn ?</p>
+      <div class="answer-choices">
+        <button>VueJS</button>
+        <button>ReactJS</button>
+        <button>AngularJS</button>
+      </div>
+    </div>
+  </section> -->
+    <!-- Question Section End (Beginner) -->
+
+    <!-- Question Section Start (Advanced) -->
+    <section class="question">
+      <div class="question-container">
+        <h4>From here, what do you want to learn ?</h4>
+        <form>
+          <div class="task-item">
+            <input type="checkbox" id="task1" name="task1">
+            <label for="task1">Task 1</label>
+          </div>
+          <div class="task-item">
+            <input type="checkbox" id="task2" name="task2">
+            <label for="task2">Task 2</label>
+          </div>
+          <div class="task-item">
+            <input type="checkbox" id="task3" name="task3">
+            <label for="task3">Task 3</label>
+          </div>
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+    </section>
+    <!-- Question Section End (Advanced) -->
+
+    <!-- Sidebar Start -->
+    <!-- <section class="sidebar">
+    <div class="sidebar-container">
+      <div class="sidebar-logo">
+        <img src="./assets/logo.png" alt="codejourner-logo" />
+      </div>
+      <div class="sidebar-menu">
+        <div class="sidebar-schedules">
+          <ul>
+            <li>
+              <i class="bx bxs-dashboard"></i>
+              <span>Schedules</span>
+              <i class='bx bxs-down-arrow'></i>
+            </li>
+            <div class="the-schedule">
+              <ul>
+                <li>
+                  <i class='bx bx-minus'></i>
+                  <span>Schedule 1</span>
+                </li>
+                <li>
+                  <i class='bx bx-minus'></i>
+                  <span>Schedule 1</span>
+                </li>
+                <li>
+                  <i class='bx bx-minus'></i>
+                  <span>Schedule 3</span>
+                </li>
+              </ul>
+            </div>
+            <li>
+              <i class='bx bxs-plus-circle'></i>
+              <span>Add New Schedule</span>
+            </li>
+          </ul>
+        </div>
+        <div class="sidebar-user">
+          <span>Welcome, User 1</span>
+          <ul>
+            <li>
+              <i class="bx bx-log-out"></i>
+              <span>Logout</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section> -->
+    <!-- Sidebar End -->
+
+    <!-- Dashboard Start -->
+    <!-- <section class="dashboard">
+    <div class="week-flag">
+      <p>Week 1</p>
+      <p>Week 2</p>
+      <p>Week 3</p>
+      <p>Week 4</p>
+    </div>
+    <div class="dashboard-container">
+      <div class="dashboard-header">
+        <h1>Schedule Name</h1>
+        <p>Estimated Time: 4 Months</p>
+        <a href="#" class="roadmap-button">Show Roadmap</a>
+        <div class="progress-bar">
+          <div class="percentage">
+            <p>Goals Reached</p>
+            <p>54%</p>
+          </div>
+          <progress max="100" value="54"></progress>
+        </div>
+      </div>
+      <hr>
+      <div class="dashboard-week">
+        <span>Month 1</span>
+        <i class='bx bx-left-arrow-alt'></i>
+        <i class='bx bx-right-arrow-alt'></i>
+      </div>
+      <div class="dashboard-content">
+        <div class="task-box">
+          <div class="day-container">
+            <p>Monday</p>
+          </div>
+          <div class="card-container">
+            <div class="card">
+              <div class="status">
+                <i class='bx bxs-circle'></i>
+                <p>Complete</p>
+              </div>
+              <p>Learn the fundamentals of React</p>
+            </div>
+            <div class="card">
+              <div class="status">
+                <i class='bx bxs-circle'></i>
+                <p>Complete</p>
+              </div>
+              <p>Learn the fundamentals of React</p>
+            </div>
+            <div class="card">
+              <div class="status">
+                <i class='bx bxs-circle'></i>
+                <p>Complete</p>
+              </div>
+              <p>Learn the fundamentals of React</p>
+            </div>
+            <div class="card">
+              <div class="status">
+                <i class='bx bxs-circle'></i>
+                <p>Complete</p>
+              </div>
+              <p>Learn the fundamentals of React</p>
+            </div>
+          </div>
+        </div>
+        <div class="task-box">
+          <div class="day-container">
+            <p>Tuesday</p>
+          </div>
+          <div class="card-container">
+            <div class="card">
+              <div class="status">
+                <i class='bx bxs-circle'></i>
+                <p>Complete</p>
+              </div>
+              <p>Learn the fundamentals of React</p>
+            </div>
+            <div class="card">
+              <div class="status">
+                <i class='bx bxs-circle'></i>
+                <p>Complete</p>
+              </div>
+              <p>Learn the fundamentals of React</p>
+            </div>
+            <div class="card">
+              <div class="status">
+                <i class='bx bxs-circle'></i>
+                <p>Complete</p>
+              </div>
+              <p>Learn the fundamentals of React</p>
+            </div>
+            <div class="card">
+              <div class="status">
+                <i class='bx bxs-circle'></i>
+                <p>Complete</p>
+              </div>
+              <p>Learn the fundamentals of React</p>
+            </div>
+          </div>
+        </div>
+        <div class="task-box">
+          <div class="day-container">
+            <p>Wednesday</p>
+          </div>
+          <div class="card-container">
+            <div class="card">
+              <div class="status">
+                <i class='bx bxs-circle'></i>
+                <p>Complete</p>
+              </div>
+              <p>Learn the fundamentals of React</p>
+            </div>
+            <div class="card">
+              <div class="status">
+                <i class='bx bxs-circle'></i>
+                <p>Complete</p>
+              </div>
+              <p>Learn the fundamentals of React</p>
+            </div>
+            <div class="card">
+              <div class="status">
+                <i class='bx bxs-circle'></i>
+                <p>Complete</p>
+              </div>
+              <p>Learn the fundamentals of React</p>
+            </div>
+            <div class="card">
+              <div class="status">
+                <i class='bx bxs-circle'></i>
+                <p>Complete</p>
+              </div>
+              <p>Learn the fundamentals of React</p>
+            </div>
+          </div>
+        </div>
+        <div class="task-box">
+          <div class="day-container">
+            <p>Thursday</p>
+          </div>
+          <div class="card-container">
+            <div class="card">
+              <div class="status">
+                <i class='bx bxs-circle'></i>
+                <p>Complete</p>
+              </div>
+              <p>Learn the fundamentals of React</p>
+            </div>
+            <div class="card">
+              <div class="status">
+                <i class='bx bxs-circle'></i>
+                <p>Complete</p>
+              </div>
+              <p>Learn the fundamentals of React</p>
+            </div>
+            <div class="card">
+              <div class="status">
+                <i class='bx bxs-circle'></i>
+                <p>Complete</p>
+              </div>
+              <p>Learn the fundamentals of React</p>
+            </div>
+            <div class="card">
+              <div class="status">
+                <i class='bx bxs-circle'></i>
+                <p>Complete</p>
+              </div>
+              <p>Learn the fundamentals of React</p>
+            </div>
+          </div>
+        </div>
+        <div class="task-box">
+          <div class="day-container">
+            <p>Friday</p>
+          </div>
+          <div class="card-container">
+            <div class="card">
+              <div class="status">
+                <i class='bx bxs-circle'></i>
+                <p>Complete</p>
+              </div>
+              <p>Learn the fundamentals of React</p>
+            </div>
+            <div class="card">
+              <div class="status">
+                <i class='bx bxs-circle'></i>
+                <p>Complete</p>
+              </div>
+              <p>Learn the fundamentals of React</p>
+            </div>
+            <div class="card">
+              <div class="status">
+                <i class='bx bxs-circle'></i>
+                <p>Complete</p>
+              </div>
+              <p>Learn the fundamentals of React</p>
+            </div>
+            <div class="card">
+              <div class="status">
+                <i class='bx bxs-circle'></i>
+                <p>Complete</p>
+              </div>
+              <p>Learn the fundamentals of React</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+    <!-- Dashboard End -->
+
+    <!-- Quiz Section Start -->
+    <!-- <section class="quiz">
+    <div class="quiz-background"></div>
+    <div class="quiz-container">
+      <div class="the-question">
+        <h4>Questions from 1 to 10</h4>
+        <p>What does Vue.js provide as a reactive and component-based JavaScript framework ?</p>
+      </div>
+      <div class="answer-choices">
+        <button>A templating engine</button>
+        <button>A state management library</button>
+        <button>A server-side rendering solution</button>
+        <button>A build tool for frontend development</button>
+      </div>
+      <div class="total-score">
+        <h4>Total Score</h4>
+        <p>100</p>
+      </div>
+    </div>
+  </section> -->
+    <!-- Quiz Section End -->
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+  </body>
+</html>
