@@ -1,0 +1,57 @@
+<template>
+  <section class="sidebar">
+    <div class="sidebar-container">
+      <div class="sidebar-logo">
+        <img src="../assets/pictures/logo.png" alt="codejourney-logo" />
+      </div>
+      <div class="sidebar-menu">
+        <div class="sidebar-schedules">
+          <ul>
+            <li>
+              <i class="bx bxs-dashboard"></i>
+              <span>Schedules</span>
+              <i class="bx bxs-down-arrow"></i>
+            </li>
+            <div class="the-schedule">
+              <ul>
+                <li>
+                  <i class="bx bx-minus"></i>
+                  <span>Schedule 1</span>
+                </li>
+                <li>
+                  <i class="bx bx-minus"></i>
+                  <span>Schedule 1</span>
+                </li>
+                <li>
+                  <i class="bx bx-minus"></i>
+                  <span>Schedule 3</span>
+                </li>
+              </ul>
+            </div>
+            <li>
+              <i class="bx bxs-plus-circle"></i>
+              <span>Add New Schedule</span>
+            </li>
+          </ul>
+        </div>
+        <div class="sidebar-user">
+          <span>Welcome, User 1</span>
+          <ul>
+            <li>
+              <i class="bx bx-log-out"></i>
+              <span>Logout</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script>
+export default {
+  name: 'Sidebar'
+}
+</script>
+
+<style scoped></style>
