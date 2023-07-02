@@ -52,5 +52,21 @@
     {
         "name":"jquery",
         "logo":"jquery.svg"
+    },
+    {
+        "name":"redux",
+        "logo":"redux.svg"
+    },
+    {
+        "name":"react-native",
+        "logo":"react-native.svg"
+    },
+    {
+        "name":"graphql",
+        "logo":"graphql.svg"
+    },
+    {
+        "name":"nodejs",
+        "logo":"nodejs.svg"
     }
 ]

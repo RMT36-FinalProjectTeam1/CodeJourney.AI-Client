@@ -15,70 +15,90 @@
       [
         [
           {
-            "task": "Learn the basics of Javascript"
+            "task": "Learn the basics of Javascript",
+            "field":"javascript"
           },
           {
-            "task": "Learn the React basics like components, props and states"
+            "task": "Learn the React basics like components, props and states",
+            "field":"react"
           },
           {
-            "task": "Understand the state and props flow in React"
+            "task": "Understand the state and props flow in React",
+            "field":"react"
           },
           {
-            "task": "Learn the fundamentals of React Router"
+            "task": "Learn the fundamentals of React Router",
+            "field":"react"
           },
           {
-            "task": "Learn the basics of React lifecycle methods"
+            "task": "Learn the basics of React lifecycle methods",
+            "field":"react"
           }
         ],
         [
           {
-            "task": "Learn data handling in React"
+            "task": "Learn data handling in React",
+            "field":"react"
           },
           {
-            "task": "Learn to use Redux with React"
+            "task": "Learn to use Redux with React",
+            "field":"redux"
           },
           {
-            "task": "Learn to use Hooks in React"
+            "task": "Learn to use Hooks in React",
+            "field":"react"
           },
           {
-            "task": "Learn to create custom Hooks"
+            "task": "Learn to create custom Hooks",
+            "field":"react"
           },
           {
-            "task": "Learn to use React Context API"
+            "task": "Learn to use React Context API",
+            "field":"react"
           }
         ],
         [
           {
-            "task": "Learn to use React Testing Library"
+            "task": "Learn to use React Testing Library",
+            "field":"react"
           },
           {
-            "task": "Learn to use component libraries in React"
+            "task": "Learn to use component libraries in React",
+            "field":"react"
           },
           {
-            "task": "Learn to use React Native"
+            "task": "Learn to use React Native",
+            "field":"react-native"
           },
           {
-            "task": "Learn to create advanced animations in React"
+            "task": "Learn to create advanced animations in React",
+            "field":"react"
           },
           {
-            "task": "Learn to build React applications with GraphQL"
+            "task": "Learn to build React applications with GraphQL",
+            "field":"graphql"
           }
         ],
         [
           {
-            "task": "Learn to build applications with React and Node"
+            "task": "Learn to build applications with React and Node",
+            "field":"nodejs"
           },
           {
-            "task": "Learn to use React in server side rendering"
+            "task": "Learn to use React in server side rendering",
+            "field":"react"
           },
           {
-            "task": "Learn to use React middleware"
+            "task": "Learn to use React middleware",
+            "field":"react"
           },
           {
-            "task": "Learn to use React-Redux for state management"
+            "task": "Learn to use React-Redux for state management",
+            "field":"redux"
           },
           {
-            "task": "Learn to create custom reusable components in React"
+            "task": "Learn to create custom reusable components in React",
+            "field":"react"
           }
         ]
       ]
