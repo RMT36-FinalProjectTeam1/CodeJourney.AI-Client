@@ -1,0 +1,56 @@
+[
+    {
+        "name":"javascript",
+        "logo":"javascript.png",
+        "attribute":"<a href=\"https://www.flaticon.com/free-icons/javascript\" title=\"javascript icons\">Javascript icons created by Freepik - Flaticon</a>"
+    },
+    {
+        "name":"react",
+        "logo":"react.png",
+        "attribute":"<a href=\"https://www.flaticon.com/free-icons/react\" title=\"react icons\">React icons created by Freepik - Flaticon</a>"
+    },
+    {
+        "name":"axios",
+        "logo":""
+    },
+    {
+        "name":"vue",
+        "logo":""
+    },
+    {
+        "name":"html",
+        "logo":""
+    },
+    {
+        "name":"css",
+        "logo":""
+    },
+    {
+        "name":"express",
+        "logo":""
+    },
+    {
+        "name":"postgresql",
+        "logo":""
+    },
+    {
+        "name":"mysql",
+        "logo":""
+    },
+    {
+        "name":"mongodb",
+        "logo":""
+    },
+    {
+        "name":"sequelize",
+        "logo":""
+    },
+    {
+        "name":"docker",
+        "logo":""
+    },
+    {
+        "name":"jquery",
+        "logo":""
+    }
+]
