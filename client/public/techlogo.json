@@ -1,56 +1,56 @@
 [
     {
         "name":"javascript",
-        "logo":"javascript.png",
+        "logo":"javascript.svg",
         "attribute":"<a href=\"https://www.flaticon.com/free-icons/javascript\" title=\"javascript icons\">Javascript icons created by Freepik - Flaticon</a>"
     },
     {
         "name":"react",
-        "logo":"react.png",
+        "logo":"react.svg",
         "attribute":"<a href=\"https://www.flaticon.com/free-icons/react\" title=\"react icons\">React icons created by Freepik - Flaticon</a>"
     },
     {
         "name":"axios",
-        "logo":""
+        "logo":"axios.png"
     },
     {
         "name":"vue",
-        "logo":""
+        "logo":"vue.svg"
     },
     {
         "name":"html",
-        "logo":""
+        "logo":"html.svg"
     },
     {
         "name":"css",
-        "logo":""
+        "logo":"css.svg"
     },
     {
         "name":"express",
-        "logo":""
+        "logo":"express.svg"
     },
     {
         "name":"postgresql",
-        "logo":""
+        "logo":"postgresql.svg"
     },
     {
         "name":"mysql",
-        "logo":""
+        "logo":"mysql.svg"
     },
     {
         "name":"mongodb",
-        "logo":""
+        "logo":"mongodb.svg"
     },
     {
         "name":"sequelize",
-        "logo":""
+        "logo":"sequelize.png"
     },
     {
         "name":"docker",
-        "logo":""
+        "logo":"docker.svg"
     },
     {
         "name":"jquery",
-        "logo":""
+        "logo":"jquery.svg"
     }
 ]
