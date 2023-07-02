@@ -5,9 +5,10 @@
         <img src="../assets/pictures/logo-image.png" alt="logo" />
         <h2>Create Your Account</h2>
         <span>Let's get started by creating your account first</span>
-        <form id="register-form">
+        <form id="register-form" @submit.prevent="handleRegister">
           <label for="register-username">Username</label>
           <input
+            v-model="username"
             type="username"
             id="register-username"
             placeholder="Enter username ..."
@@ -16,6 +17,7 @@
           />
           <label for="register-email">Email</label>
           <input
+            v-model="email"
             type="email"
             id="register-email"
             placeholder="Enter email address ..."
@@ -24,6 +26,7 @@
           />
           <label for="register-password">Password</label>
           <input
+            v-model="password"
             type="password"
             id="register-password"
             placeholder="Enter password ..."
@@ -42,8 +45,24 @@
 </template>
 
 <script>
+import { mapActions } from 'pinia';
+import { useCounterStore } from '../stores/counter';
+
 export default {
-  name: 'RegisterPage'
+  name: 'RegisterPage',
+  data() {
+    return {
+      username: '',
+      email: '',
+      password: ''
+    }
+  },
+  methods: {
+    ...mapActions(useCounterStore, ['handleRegister']),
+    submitRegister() {
+      this.handleRegister(this.username, this.email, this.password)
+    }
+  }
 }
 </script>
 

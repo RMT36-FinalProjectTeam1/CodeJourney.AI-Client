@@ -49,8 +49,8 @@ body {
 
 .login-container,
 .register-container {
-  width: 50%;
-  height: 80%;
+  width: 770px;
+  height: 580px;
   background: var(--black-color);
   display: flex;
   flex-direction: row;

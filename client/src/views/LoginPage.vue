@@ -5,9 +5,10 @@
         <img src="../assets/pictures/logo-image.png" alt="logo" />
         <h2>Login to Your Account</h2>
         <span>The faster you login, the faster we get to work</span>
-        <form id="login-form">
+        <form id="login-form" @submit.prevent="submitLogin">
           <label for="login-email">Email</label>
           <input
+            v-model="email"
             type="email"
             id="login-email"
             placeholder="Enter email address ..."
@@ -16,6 +17,7 @@
           />
           <label for="login-password">Password</label>
           <input
+            v-model="password"
             type="password"
             id="login-password"
             placeholder="Enter password ..."
@@ -36,8 +38,26 @@
 </template>
 
 <script>
+import { mapActions } from 'pinia';
+import { useCounterStore } from '../stores/counter';
+
 export default {
-  name: 'LoginPage'
+  name: 'LoginPage',
+  data() {
+    return {
+      email: '',
+      password: ''
+    }
+  },
+  methods: {
+    ...mapActions(useCounterStore, ['handleLogin']),
+    submitLogin() {
+      this.handleLogin(this.email, this.password)
+    },
+    goToRegisterForm() {
+      this.$router.push('/register')
+    }
+  }
 }
 </script>
 

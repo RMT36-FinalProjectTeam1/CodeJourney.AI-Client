@@ -22,7 +22,7 @@
           <p>Learn HTML basic and advanced</p>
         </div>
       </div>
-    </td>
+    </td> 
     <td>
       <div class="td-cell">
         <div class="image">
@@ -234,8 +234,22 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'pinia';
+import { useCounterStore } from '../stores/counter';
+
 export default {
-  name: 'DashboardTableData'
+  name: 'DashboardTableData',
+  computed: {
+    ...mapState(useCounterStore, ['schedule'])
+  },
+  methods: {
+    ...mapActions(useCounterStore, ['fetchSchedule']),
+  },
+  created() {
+    this.fetchSchedule()
+    
+    // console.log(this.schedule[0].month_1[0].Week_1[0].Day_1.icon)
+  }
 }
 </script>
 
