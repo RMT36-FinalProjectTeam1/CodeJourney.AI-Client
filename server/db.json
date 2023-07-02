@@ -11,326 +11,76 @@
       "password": "123456"
     }
   ],
-  "schedule": [
-    {
-      "month_1": [
-        {
-          "Week_1": [
-            {
-              "Day_1": {
-                "task": "Learn HTML fundamentals",
-                "status": "Complete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_2": {
-                "task": "Learn CSS fundamentals",
-                "status": "Uncomplete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_3": {
-                "task": "Learn SASS and Bootstrap",
-                "status": "Complete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_4": {
-                "task": "Learn React basics",
-                "status": "Uncomplete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_5": {
-                "task": "Practice React basics",
-                "status": "Complete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            }
-          ]
-        },
-        {
-          "Week_2": [
-            {
-              "Day_1": {
-                "task": "Learn React components",
-                "status": "Complete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_2": {
-                "task": "Learn React props and state",
-                "status": "Uncomplete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_3": {
-                "task": "Learn React lifecycle hooks",
-                "status": "Complete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_4": {
-                "task": "Learn React Router",
-                "status": "Uncomplete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_5": {
-                "task": "Practice React Router",
-                "status": "Complete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            }
-          ]
-        },
-        {
-          "Week_3": [
-            {
-              "Day_1": {
-                "task": "Learn Redux basics",
-                "status": "Complete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_2": {
-                "task": "Learn React middleware",
-                "status": "Uncomplete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_3": {
-                "task": "Learn React forms",
-                "status": "Complete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_4": {
-                "task": "Learn React testing tools",
-                "status": "Uncomplete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_5": {
-                "task": "Practice React testing tools",
-                "status": "Complete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            }
-          ]
-        },
-        {
-          "Week_4": [
-            {
-              "Day_1": {
-                "task": "Learn UI design principles",
-                "status": "Complete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_2": {
-                "task": "Learn UX design principles",
-                "status": "Uncomplete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_3": {
-                "task": "Review React fundamentals",
-                "status": "Complete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_4": {
-                "task": "Practice React projects",
-                "status": "Uncomplete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_5": {
-                "task": "Reflect on learning progress",
-                "status": "Complete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            }
-          ]
-        }
+    "schedule": [
+      [
+        [
+          {
+            "task": "Learn the basics of Javascript"
+          },
+          {
+            "task": "Learn the React basics like components, props and states"
+          },
+          {
+            "task": "Understand the state and props flow in React"
+          },
+          {
+            "task": "Learn the fundamentals of React Router"
+          },
+          {
+            "task": "Learn the basics of React lifecycle methods"
+          }
+        ],
+        [
+          {
+            "task": "Learn data handling in React"
+          },
+          {
+            "task": "Learn to use Redux with React"
+          },
+          {
+            "task": "Learn to use Hooks in React"
+          },
+          {
+            "task": "Learn to create custom Hooks"
+          },
+          {
+            "task": "Learn to use React Context API"
+          }
+        ],
+        [
+          {
+            "task": "Learn to use React Testing Library"
+          },
+          {
+            "task": "Learn to use component libraries in React"
+          },
+          {
+            "task": "Learn to use React Native"
+          },
+          {
+            "task": "Learn to create advanced animations in React"
+          },
+          {
+            "task": "Learn to build React applications with GraphQL"
+          }
+        ],
+        [
+          {
+            "task": "Learn to build applications with React and Node"
+          },
+          {
+            "task": "Learn to use React in server side rendering"
+          },
+          {
+            "task": "Learn to use React middleware"
+          },
+          {
+            "task": "Learn to use React-Redux for state management"
+          },
+          {
+            "task": "Learn to create custom reusable components in React"
+          }
+        ]
       ]
-    },
-    {
-      "month_2": [
-        {
-          "Week_1": [
-            {
-              "Day_1": {
-                "task": "Learn HTML fundamentals 2",
-                "status": "Complete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_2": {
-                "task": "Learn CSS fundamentals 2",
-                "status": "Uncomplete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_3": {
-                "task": "Learn SASS and Bootstrap 2",
-                "status": "Complete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_4": {
-                "task": "Learn React basics 2",
-                "status": "Uncomplete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_5": {
-                "task": "Practice React basics 2",
-                "status": "Complete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            }
-          ]
-        },
-        {
-          "Week_2": [
-            {
-              "Day_1": {
-                "task": "Learn React components 2",
-                "status": "Complete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_2": {
-                "task": "Learn React props and state 2",
-                "status": "Uncomplete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_3": {
-                "task": "Learn React lifecycle hooks 2",
-                "status": "Complete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_4": {
-                "task": "Learn React Router 2",
-                "status": "Uncomplete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_5": {
-                "task": "Practice React Router 2",
-                "status": "Complete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            }
-          ]
-        },
-        {
-          "Week_3": [
-            {
-              "Day_1": {
-                "task": "Learn Redux basics 2",
-                "status": "Complete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_2": {
-                "task": "Learn React middleware 2",
-                "status": "Uncomplete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_3": {
-                "task": "Learn React forms 2",
-                "status": "Complete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_4": {
-                "task": "Learn React testing tools 2",
-                "status": "Uncomplete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_5": {
-                "task": "Practice React testing tools 2",
-                "status": "Complete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            }
-          ]
-        },
-        {
-          "Week_4": [
-            {
-              "Day_1": {
-                "task": "Learn UI design principles 2",
-                "status": "Complete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_2": {
-                "task": "Learn UX design principles 2",
-                "status": "Uncomplete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_3": {
-                "task": "Review React fundamentals 2",
-                "status": "Complete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_4": {
-                "task": "Practice React projects 2",
-                "status": "Uncomplete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            },
-            {
-              "Day_5": {
-                "task": "Reflect on learning progress 2",
-                "status": "Complete",
-                "icon": "../assets/pictures/html-logo.png"
-              }
-            }
-          ]
-        }
-      ]
-    }
-  ]
+    ]
 }

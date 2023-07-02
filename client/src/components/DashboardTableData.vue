@@ -1,253 +1,39 @@
 <template>
-  <tr>
-    <td><span>Week 1</span></td>
+  <tr v-if="schedule[0]" v-for="(week, index) in schedule[currentMonth-1]">
     <td>
-      <div class="td-cell">
-        <div class="image">
-          <img src="../assets/pictures/html-logo.png" alt="" />
-        </div>
-        <div class="content">
-          <span>Complete</span>
-          <p>Learn HTML basic</p>
-        </div>
-      </div>
+      <span>week {{ index + 1 }}</span>
     </td>
-    <td>
+    <td v-for="(day, index) in week">
       <div class="td-cell">
         <div class="image">
           <img src="../assets/pictures/html-logo.png" alt="" />
         </div>
         <div class="content">
           <span>Complete</span>
-          <p>Learn HTML basic and advanced</p>
-        </div>
-      </div>
-    </td> 
-    <td>
-      <div class="td-cell">
-        <div class="image">
-          <img src="../assets/pictures/html-logo.png" alt="" />
-        </div>
-        <div class="content">
-          <span>Complete</span>
-          <p>Learn HTML basic</p>
-        </div>
-      </div>
-    </td>
-    <td>
-      <div class="td-cell">
-        <div class="image">
-          <img src="../assets/pictures/html-logo.png" alt="" />
-        </div>
-        <div class="content">
-          <span>Complete</span>
-          <p>Learn HTML basic</p>
-        </div>
-      </div>
-    </td>
-    <td>
-      <div class="td-cell">
-        <div class="image">
-          <img src="../assets/pictures/html-logo.png" alt="" />
-        </div>
-        <div class="content">
-          <span>Complete</span>
-          <p>Learn HTML basic</p>
+          <p>{{ day.task }}</p>
         </div>
       </div>
     </td>
   </tr>
-  <tr>
-    <td><span>Week 2</span></td>
-    <td>
-      <div class="td-cell">
-        <div class="image">
-          <img src="../assets/pictures/html-logo.png" alt="" />
-        </div>
-        <div class="content">
-          <span>Complete</span>
-          <p>Learn HTML basic</p>
-        </div>
-      </div>
-    </td>
-    <td>
-      <div class="td-cell">
-        <div class="image">
-          <img src="../assets/pictures/html-logo.png" alt="" />
-        </div>
-        <div class="content">
-          <span>Complete</span>
-          <p>Learn HTML basic and advanced</p>
-        </div>
-      </div>
-    </td>
-    <td>
-      <div class="td-cell">
-        <div class="image">
-          <img src="../assets/pictures/html-logo.png" alt="" />
-        </div>
-        <div class="content">
-          <span>Complete</span>
-          <p>Learn HTML basic</p>
-        </div>
-      </div>
-    </td>
-    <td>
-      <div class="td-cell">
-        <div class="image">
-          <img src="../assets/pictures/html-logo.png" alt="" />
-        </div>
-        <div class="content">
-          <span>Complete</span>
-          <p>Learn HTML basic</p>
-        </div>
-      </div>
-    </td>
-    <td>
-      <div class="td-cell">
-        <div class="image">
-          <img src="../assets/pictures/html-logo.png" alt="" />
-        </div>
-        <div class="content">
-          <span>Complete</span>
-          <p>Learn HTML basic</p>
-        </div>
-      </div>
-    </td>
-  </tr>
-  <tr>
-    <td><span>Week 3</span></td>
-    <td>
-      <div class="td-cell">
-        <div class="image">
-          <img src="../assets/pictures/html-logo.png" alt="" />
-        </div>
-        <div class="content">
-          <span>Complete</span>
-          <p>Learn HTML basic</p>
-        </div>
-      </div>
-    </td>
-    <td>
-      <div class="td-cell">
-        <div class="image">
-          <img src="../assets/pictures/html-logo.png" alt="" />
-        </div>
-        <div class="content">
-          <span>Complete</span>
-          <p>Learn HTML basic and advanced</p>
-        </div>
-      </div>
-    </td>
-    <td>
-      <div class="td-cell">
-        <div class="image">
-          <img src="../assets/pictures/html-logo.png" alt="" />
-        </div>
-        <div class="content">
-          <span>Complete</span>
-          <p>Learn HTML basic</p>
-        </div>
-      </div>
-    </td>
-    <td>
-      <div class="td-cell">
-        <div class="image">
-          <img src="../assets/pictures/html-logo.png" alt="" />
-        </div>
-        <div class="content">
-          <span>Complete</span>
-          <p>Learn HTML basic</p>
-        </div>
-      </div>
-    </td>
-    <td>
-      <div class="td-cell">
-        <div class="image">
-          <img src="../assets/pictures/html-logo.png" alt="" />
-        </div>
-        <div class="content">
-          <span>Complete</span>
-          <p>Learn HTML basic</p>
-        </div>
-      </div>
-    </td>
-  </tr>
-  <tr>
-    <td><span>Week 4</span></td>
-    <td>
-      <div class="td-cell">
-        <div class="image">
-          <img src="../assets/pictures/html-logo.png" alt="" />
-        </div>
-        <div class="content">
-          <span>Complete</span>
-          <p>Learn HTML basic</p>
-        </div>
-      </div>
-    </td>
-    <td>
-      <div class="td-cell">
-        <div class="image">
-          <img src="../assets/pictures/html-logo.png" alt="" />
-        </div>
-        <div class="content">
-          <span>Complete</span>
-          <p>Learn HTML basic and advanced</p>
-        </div>
-      </div>
-    </td>
-    <td>
-      <div class="td-cell">
-        <div class="image">
-          <img src="../assets/pictures/html-logo.png" alt="" />
-        </div>
-        <div class="content">
-          <span>Complete</span>
-          <p>Learn HTML basic</p>
-        </div>
-      </div>
-    </td>
-    <td>
-      <div class="td-cell">
-        <div class="image">
-          <img src="../assets/pictures/html-logo.png" alt="" />
-        </div>
-        <div class="content">
-          <span>Complete</span>
-          <p>Learn HTML basic</p>
-        </div>
-      </div>
-    </td>
-    <td>
-      <div class="td-cell">
-        <div class="image">
-          <img src="../assets/pictures/html-logo.png" alt="" />
-        </div>
-        <div class="content">
-          <span>Complete</span>
-          <p>Learn HTML basic</p>
-        </div>
-      </div>
-    </td>
+  <tr v-else>
+    <td>loading</td>
   </tr>
 </template>
 
 <script>
-import { mapActions, mapState } from 'pinia';
-import { useCounterStore } from '../stores/counter';
+import { mapActions, mapState } from 'pinia'
+import { useCounterStore } from '../stores/counter'
 
 export default {
   name: 'DashboardTableData',
   computed: {
-    ...mapState(useCounterStore, ['schedule'])
+    ...mapState(useCounterStore, ['schedule', 'currentMonth'])
   },
   methods: {
-    ...mapActions(useCounterStore, ['fetchSchedule']),
+    ...mapActions(useCounterStore, ['fetchSchedule'])
   },
   created() {
     this.fetchSchedule()
-    
     // console.log(this.schedule[0].month_1[0].Week_1[0].Day_1.icon)
   }
 }

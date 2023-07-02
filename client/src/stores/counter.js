@@ -6,7 +6,8 @@ export const useCounterStore = defineStore('counter', {
     baseUrl: 'http://localhost:3000',
     schedule: [],
     scheduleDetail: [],
-    isFailLoadData: false
+    isFailLoadData: false,
+    currentMonth:1
   }),
   getters: {
     // doubleCount: (state) => state.count * 2,
@@ -49,7 +50,7 @@ export const useCounterStore = defineStore('counter', {
         })
         this.isFailLoadData = false
         this.schedule = schedule
-        console.log(schedule)
+        console.log(schedule[0].month_1)
       } catch (err) {
         this.isFailLoadData = true
         console.log(err)
