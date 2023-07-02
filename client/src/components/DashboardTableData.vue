@@ -1,12 +1,12 @@
 <template>
-  <tr v-if="schedule[0]" v-for="(week, index) in schedule[currentMonth-1]">
+  <tr v-if="schedule[currentMonth - 1]" v-for="(week, index) in schedule[currentMonth - 1]">
     <td>
       <span>week {{ index + 1 }}</span>
     </td>
     <td v-for="(day, index) in week">
       <div class="td-cell">
         <div class="image">
-          <img src="../assets/pictures/html-logo.png" alt="" />
+          <img :src="setLogo(day.task)" alt="" />
         </div>
         <div class="content">
           <span>Complete</span>
@@ -23,6 +23,7 @@
 <script>
 import { mapActions, mapState } from 'pinia'
 import { useCounterStore } from '../stores/counter'
+import logos from '../../public/techlogo.json'
 
 export default {
   name: 'DashboardTableData',
@@ -30,10 +31,23 @@ export default {
     ...mapState(useCounterStore, ['schedule', 'currentMonth'])
   },
   methods: {
-    ...mapActions(useCounterStore, ['fetchSchedule'])
+    ...mapActions(useCounterStore, ['fetchSchedule']),
+    setLogo(task){
+      let logo = 'logo/global1.png'
+      task = task.toLowerCase()
+      logos.every(el =>{
+        if(task.includes(el.name,0)) {
+          logo = `logo/${el.logo}`
+          return false
+        }
+        return true
+      })
+      return logo
+    }
   },
   created() {
     this.fetchSchedule()
+    console.log(logos)
     // console.log(this.schedule[0].month_1[0].Week_1[0].Day_1.icon)
   }
 }

@@ -5,11 +5,6 @@
         "attribute":"<a href=\"https://www.flaticon.com/free-icons/javascript\" title=\"javascript icons\">Javascript icons created by Freepik - Flaticon</a>"
     },
     {
-        "name":"react",
-        "logo":"react.svg",
-        "attribute":"<a href=\"https://www.flaticon.com/free-icons/react\" title=\"react icons\">React icons created by Freepik - Flaticon</a>"
-    },
-    {
         "name":"axios",
         "logo":"axios.png"
     },
@@ -66,7 +61,12 @@
         "logo":"graphql.svg"
     },
     {
-        "name":"nodejs",
+        "name":"node",
         "logo":"nodejs.svg"
+    },
+    {
+        "name":"react",
+        "logo":"react.svg",
+        "attribute":"<a href=\"https://www.flaticon.com/free-icons/react\" title=\"react icons\">React icons created by Freepik - Flaticon</a>"
     }
 ]
