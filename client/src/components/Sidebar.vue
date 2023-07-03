@@ -28,10 +28,12 @@
                 </li>
               </ul>
             </div>
-            <li>
-              <i class="bx bxs-plus-circle"></i>
-              <span>Add New Schedule</span>
-            </li>
+            <RouterLink to="/quesioner">
+              <li>
+                <i class="bx bxs-plus-circle"></i>
+                <span>Add New Schedule</span>
+              </li>
+            </RouterLink>
           </ul>
         </div>
         <div class="sidebar-user">
@@ -54,4 +56,8 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+  li {
+    color: #ffffff;
+  }
+</style>

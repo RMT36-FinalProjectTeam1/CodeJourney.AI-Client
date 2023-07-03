@@ -4,14 +4,19 @@
       <h2>Type Of Schedules</h2>
       <hr />
       <div class="schedule-content">
-        <div class="schedule-button">
-          <i class="bx bx-left-arrow-alt"></i>
-          <p>ADVANCED</p>
-        </div>
-        <div class="schedule-button">
-          <i class="bx bx-right-arrow-alt"></i>
-          <p>BEGINNER</p>
-        </div>
+        <RouterLink to="/quesioner/advanced">
+          <div class="schedule-button">
+            <i class="bx bx-left-arrow-alt"></i>
+            <p>ADVANCED</p>
+          </div>
+        </RouterLink>
+
+        <RouterLink to="/quesioner/beginner">
+          <div class="schedule-button">
+            <i class="bx bx-right-arrow-alt"></i>
+            <p>BEGINNER</p>
+          </div>
+        </RouterLink>
       </div>
       <div class="schedule-description">
         <i class="bx bxs-info-circle"></i>
@@ -28,4 +33,8 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.schedule-button {
+  color: #282634;
+}
+</style>
