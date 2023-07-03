@@ -1,25 +1,22 @@
 <template>
-  <QuesionerChooseModels v-if="advancedPrompt.length === 0 && recommendedPrompt.length === 0"/>
-  <QuesionerAdvanced v-if="advancedPrompt.length !== 0"/>
-  <QuesionerRecommended v-if="recommendedPrompt.length !== 0"/>
+  <QuesionerScheduleModel v-if="prompt.length === 0"/>
+  <QuesionerChecklist v-if="customSchedule || recommendedSchedule"/>
 </template>
 
 <script>
-import QuesionerChooseModels from '../components/QuesionerChooseModels.vue';
-import QuesionerAdvanced from '../components/QuesionerAdvanced.vue';
-import QuesionerRecommended from '../components/QuesionerRecommended.vue';
+import QuesionerScheduleModel from '../components/QuesionerScheduleModel.vue';
+import QuesionerChecklist from '../components/QuesionerChecklist.vue';
 import { mapState } from 'pinia';
 import { useCounterStore } from '../stores/counter';
 
 export default {
   name: 'QuesionerPage',
   components: {
-    QuesionerChooseModels,
-    QuesionerAdvanced,
-    QuesionerRecommended
+    QuesionerScheduleModel,
+    QuesionerChecklist
   },
   computed: {
-    ...mapState(useCounterStore, ['advancedPrompt', 'recommendedPrompt'])
+    ...mapState(useCounterStore, ['prompt', 'customSchedule', 'recommendedSchedule'])
   },
 }
 </script>

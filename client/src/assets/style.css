@@ -170,106 +170,17 @@ body {
 
 
 
+
 /* Schedule Model Section Start */
-.schedule-model,
-.advanced-model,
-.question-advanced,
-.question-recommended {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.schedule-model-container {
-  width: 40%;
-  height: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: var(--black-color);
-  color: var(--black-color);
-  padding: 0 20px;
-  gap: 1rem;
-}
-
-.schedule-model-container .schedule-content {
-  flex: 0.6;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 100%;
-  gap: 20px;
-}
-
-.schedule-content .schedule-button {
-  width: 50%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 3px;
-  background: var(--light-gray-color);
-  cursor: pointer;
-}
-
-.schedule-content .schedule-button:hover {
-  background: var(--red-color);
-  color: var(--light-gray-color);
-}
-
-.schedule-content .schedule-button i {
-  font-size: 70px;
-}
-
-.schedule-model-container h2,
-.advanced-model-container h2 {
-  color: var(--white-color);
-  font-size: var(--font-size-xl);
-}
-
-.schedule-model-container hr,
-.advanced-model-container hr {
-  width: 100%;
-  margin-bottom: 15px;
-}
-.advanced-model-container hr {
-  margin-bottom: 0 !important;
-}
-
-.schedule-model-container .schedule-description {
-  flex: 0.2;
-  width: 100%;
-  height: 100%;
-  background: var(--light-gray-color);
-  opacity: 0.5;
-  border-radius: 3px;
-  padding: 7px;
-  font-size: var(--font-size-s);
-}
-
-.schedule-description i {
-  font-size: var(--font-size-m);
-}
-/* Schedule Model Section End */
-
-
-
-
-/* Schedule Model V2 Section Start */
-.schedule-model-v2 {
+.schedule-model {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
-  /* background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.8)), url('./assets/model-background.jpg'); */
   background-size: cover;
 }
 
-.schedule-model-v2-container {
+.schedule-model-container {
   width: 60%;
   height: fit-content;
   display: flex;
@@ -282,7 +193,7 @@ body {
   gap: 1rem;
 }
 
-.schedule-model-v2-container h1 {
+.schedule-model-container h1 {
   font-size: var(--font-size-xxl);
   border-bottom: 3px solid var(--black-color);
   margin-bottom: 30px;
@@ -450,181 +361,22 @@ body {
   margin-right: 0.5em; /* Jarak antara dot dan teks */
   text-align: center;
 }
-/* Schedule Model V2 Section End */
+/* Schedule Model Section End */
 
 
 
 
-/* Advanced Model Section Start */
-.advanced-model-container {
-  width: 40%;
-  height: 37.5%;
+
+/* Quesioner Checklist Section Start */
+.quesioner-checklist {
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: var(--black-color);
-  color: var(--light-gray-color);
-  padding: 20px;
-  gap: 1rem;
-}
-
-#advanced-form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-#advanced-form label {
-  opacity: 0.8;
-  font-size: var(--font-size-m);
-  font-weight: 200;
-  margin-bottom: 7px;
-}
-
-#advanced-form textarea {
-  outline: none;
-  border-radius: 3px;
-  resize: none;
-  padding: 5px 8px;
-  font-size: var(--font-size-m);
-  margin-bottom: 10px;
-}
-
-#advanced-form button {
-  border: none;
-  border-radius: 3px;
-  padding: 8px;
-  font-size: var(--font-size-m);
-  font-weight: 500;
-  background: var(--light-gray-color);
-  cursor: pointer;
-}
-
-#advanced-form button:hover {
-  background: var(--red-color);
-  color: var(--light-gray-color);
-}
-/* Advanced Model Section End */
-
-
-
-
-
-/* Question Recommended Section Start */
-.question-recommended-container {
-  width: 40%;
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--black-color);
-  padding: 30px 35px;
 }
 
-.question-recommended-container h2 {
-  color: var(--white-color);
-  font-size: var(--font-size-xl);
-  margin-bottom: 1rem;
-}
-
-.question-recommended-container h4 {
-  text-align: center;
-  font-size: var(--font-size-xm);
-  font-weight: 600;
-  color: var(--white-color);
-  margin-top: 1rem;
-  margin-bottom: 5px;
-}
-
-.question-recommended-container hr {
-  width: 100%;
-}
-
-.question-recommended-container p {
-  text-align: center;
-  font-size: var(--font-size-xm);
-  color: var(--white-color);
-}
-
-.question-recommended-container .answer-choices {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 10px;
-}
-
-.question-recommended-container .answer-choices button {
-  border: none;
-  border-radius: 3px;
-  padding: 8px;
-  font-weight: 500;
-  font-size: var(--font-size-m);
-  background: var(--light-gray-color);
-  cursor: pointer;
-}
-
-.question-recommended-container .answer-choices button:hover {
-  background: var(--red-color);
-  color: var(--light-gray-color);
-}
-
-.question-recommended-container form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.question-recommended-container .task-item {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 7px;
-  margin-bottom: 10px;
-}
-
-.question-recommended-container .task-item label {
-  height: 37.2px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  padding-left: 10px;
-  background: rgba(147, 147, 147, 0.4);
-  color: var(--light-gray-color);
-  border-radius: 3px;
-}
-
-.question-recommended-container form input[type="checkbox"] {
-  margin-right: 5px;
-  width: 40px;
-  height: 40px;
-}
-
-.question-recommended-container form input[type="submit"] {
-  padding: 10px 20px;
-  margin-top: 10px;
-  font-size: var(--font-size-m);
-  font-weight: 500;
-  cursor: pointer;
-  border: none;
-  border-radius: 3px;
-}
-
-.question-recommended-container form input[type="submit"]:hover {
-  background: var(--red-color);
-  color: var(--light-gray-color);
-}
-/* Question Recommended Section End */
-
-
-
-
-
-/* Question Advanced Section Start */
-.question-advanced-container {
+.quesioner-checklist-container {
   width: 40%;
   height: fit-content;
   display: flex;
@@ -636,34 +388,67 @@ body {
   gap: 1rem;
 }
 
-.question-advanced-container h2 {
+.quesioner-checklist-container h2 {
   color: var(--white-color);
   font-size: var(--font-size-xl);
 }
 
-.question-advanced-container hr {
+.quesioner-checklist-container hr {
   width: 100%;
 }
 
-.question-advanced-container p {
+.quesioner-checklist-container p {
   text-align: center;
   font-size: var(--font-size-xm);
   color: var(--white-color);
 }
 
-.question-advanced-container .answer-choices button:hover {
-  background: var(--red-color);
-  color: var(--light-gray-color);
+.quesioner-checklist-container .task-form {
+  width: 100%;
+  height: 238px;
+  overflow: auto;
 }
 
-.question-advanced-container form {
+/* Menambahkan scrollbar pada elemen dengan class .quesioner-checklist-container .task-form */
+.quesioner-checklist-container .task-form::-webkit-scrollbar {
+  width: 13px;
+}
+
+/* Mengubah warna latar belakang scrollbar */
+.quesioner-checklist-container .task-form::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 5px;
+}
+
+/* Mengubah warna thumb (bagian yang dapat digerakkan) scrollbar */
+.quesioner-checklist-container .task-form::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+
+/* Mengubah warna thumb saat dihover */
+.quesioner-checklist-container .task-form::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+.quesioner-checklist-container form {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.question-advanced-container .task-item {
+.quesioner-checklist-container .date-item {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: start;
+  text-align: start !important;
+}
+
+.quesioner-checklist-container .task-item {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -672,7 +457,7 @@ body {
   margin-bottom: 10px;
 }
 
-.question-advanced-container .task-item label {
+.quesioner-checklist-container .task-item label {
   height: 37.2px;
   width: 100%;
   display: flex;
@@ -683,14 +468,19 @@ body {
   border-radius: 3px;
 }
 
-.question-advanced-container form input[type="checkbox"] {
+.quesioner-checklist-container .task-item.all {
+  width: fit-content;
+  padding-right: 10px;
+}
+
+.quesioner-checklist-container input[type="checkbox"] {
   margin-right: 5px;
   width: 40px;
   height: 40px;
   cursor: pointer;
 }
 
-.question-advanced-container form input[type="submit"] {
+.quesioner-checklist-button {
   padding: 10px 20px;
   margin-top: 10px;
   font-size: var(--font-size-m);
@@ -700,11 +490,11 @@ body {
   border-radius: 3px;
 }
 
-.question-advanced-container form input[type="submit"]:hover {
+.quesioner-checklist-button:hover {
   background: var(--red-color);
   color: var(--light-gray-color);
 }
-/* Question Advanced Section End */
+/* Quesioner checklist Section End */
 
 
 
@@ -1241,7 +1031,7 @@ td:not(:first-child) {
   align-items: center;
 }
 
-.quiz-container .quiz-question {
+.quiz-container .quiz-quesioner {
   position: relative;
   width: 100%;
   height: 26%;
@@ -1251,7 +1041,7 @@ td:not(:first-child) {
   background: var(--white-color);
 }
 
-.quiz-container .quiz-question h4 {
+.quiz-container .quiz-quesioner h4 {
   position: absolute;
   top: 0;
   left: 50%;
@@ -1264,7 +1054,7 @@ td:not(:first-child) {
   border-radius: 10px;
 }
 
-.quiz-container .quiz-question p {
+.quiz-container .quiz-quesioner p {
   margin-top: 3.5rem;
   font-size: var(--font-size-xm);
   font-weight: 500;
