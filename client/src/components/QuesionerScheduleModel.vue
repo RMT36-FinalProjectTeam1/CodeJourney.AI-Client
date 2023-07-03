@@ -1,10 +1,10 @@
 <template>
-  <section class="schedule-model-v2">
-    <div class="schedule-model-v2-container">
+  <section class="schedule-model">
+    <div class="schedule-model-container">
       <h1>Generate your schedule models !</h1>
       <div class="custom-schedule">
         <div class="search-box">
-          <form class="search-form" @submit.prevent="submitAdvancedPrompt" id="search-form">
+          <form class="search-form" @submit.prevent="submitCustomPrompt" id="search-form">
             <input
               v-model="description"
               type="text"
@@ -43,7 +43,7 @@ import { mapActions } from 'pinia';
 import { useCounterStore } from '../stores/counter';
 import QuesionerRecommendedCard from './QuesionerRecommendedCard.vue'
 export default {
-  name: 'QuesionerChooseModels',
+  name: 'QuesionerScheduleModel',
   components: {
     QuesionerRecommendedCard,
   },
@@ -53,9 +53,9 @@ export default {
     }
   },
   methods: {
-    ...mapActions(useCounterStore, ['handleAdvancedPrompt']),
-    submitAdvancedPrompt() {
-      this.handleAdvancedPrompt(this.description)
+    ...mapActions(useCounterStore, ['handleCustomPrompt']),
+    submitCustomPrompt() {
+      this.handleCustomPrompt(this.description)
     }
   }
 }
