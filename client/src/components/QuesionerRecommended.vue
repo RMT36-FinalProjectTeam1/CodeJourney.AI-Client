@@ -1,7 +1,7 @@
 <template>
-  <section class="question-beginner">
-    <div class="question-beginner-container">
-      <h2>Beginner Schedule</h2>
+  <section class="question-recommended">
+    <div class="question-recommended-container">
+      <h2>Recommended Schedule</h2>
       <hr />
       <h4>Question {{ currentQuestionIndex + 1 }}/{{ questions.length }}</h4>
       <p>{{ questions[currentQuestionIndex].question }}</p>
@@ -13,8 +13,11 @@
 </template>
 
 <script>
+import { mapActions } from 'pinia';
+import { useCounterStore } from '../stores/counter';
+
 export default {
-  name: 'QuestionerBeginner',
+  name: 'QuesionerRecommended',
   data() {
     return {
       currentQuestionIndex: 0,
@@ -33,13 +36,15 @@ export default {
     };
   },
   methods: {
+    ...mapActions(useCounterStore, ['handleChoicesPrompt']),
     selectChoice(choice) {
       this.selectedChoices.push(choice);
       if (this.currentQuestionIndex < this.questions.length - 1) {
         this.currentQuestionIndex++;
       } else {
         // All questions answered, do something with the selected choices
-        console.log('Selected choices:', this.selectedChoices);
+        // console.log('Selected choices:', this.selectedChoices);
+        this.handleChoicesPrompt(this.selectedChoices);
         // Reset the component to start over if needed
         this.currentQuestionIndex = 0;
         this.selectedChoices = [];

@@ -60,7 +60,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(useCounterStore, ['prompt']),
+    ...mapState(useCounterStore, ['advancedPrompt']),
   }
 }
 </script>

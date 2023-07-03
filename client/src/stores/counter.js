@@ -4,9 +4,13 @@ import axios from 'axios'
 export const useCounterStore = defineStore('counter', {
   state: () => ({
     baseUrl: 'http://localhost:3000',
-    prompt: [],
+    // Advanced
+    advancedPrompt: [],
     checklistPrompt: [],
+    // Recommended
+    recommendedPrompt: [],
     choicesPrompt: [],
+    // Schedule
     schedule: [],
     scheduleDetail: [],
     isFailLoadData: false,
@@ -46,16 +50,20 @@ export const useCounterStore = defineStore('counter', {
       this.router.push('/login')
     },
     // Prompt Advanced
-    handlePrompt(description) {
-      this.prompt.push(description)
-      console.log(this.prompt, 'ISI PROMPT')
+    handleAdvancedPrompt(description) {
+      this.advancedPrompt.push(description)
+      console.log(this.advancedPrompt, 'ISI PROMPT')
     },
     handleCheckListPrompt(checklist) {
       this.checklistPrompt = checklist
       console.log(this.checklistPrompt)
     },
-    // Prompt Beginner
-    handleChoicePrompt(choices) {
+    // Prompt Recommended
+    handleRecommendedPrompt(description) {
+      this.recommendedPrompt.push(description)
+      console.log(this.recommendedPrompt, 'ISI PROMPT')
+    },
+    handleChoicesPrompt(choices) {
       this.choicesPrompt = choices
       console.log(this.choicesPrompt)
     },

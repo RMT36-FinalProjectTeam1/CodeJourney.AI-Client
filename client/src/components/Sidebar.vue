@@ -52,7 +52,13 @@
 
 <script>
 export default {
-  name: 'Sidebar'
+  name: 'Sidebar',
+  mounted() {
+    let schedules = document.querySelector('.sidebar-schedules')
+    schedules.onclick = () => {
+      schedules.classList.toggle('active')
+    }
+  }
 }
 </script>
 

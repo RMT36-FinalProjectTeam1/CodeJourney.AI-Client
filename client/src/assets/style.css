@@ -49,8 +49,8 @@ body {
 
 .login-container,
 .register-container {
-  width: 770px;
-  height: 580px;
+  width: 50%;
+  height: 80%;
   background: var(--black-color);
   display: flex;
   flex-direction: row;
@@ -174,7 +174,7 @@ body {
 .schedule-model,
 .advanced-model,
 .question-advanced,
-.question-beginner {
+.question-recommended {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -205,8 +205,8 @@ body {
 }
 
 .schedule-content .schedule-button {
-  width: 280px;
-  height: 145px;
+  width: 50%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -256,6 +256,201 @@ body {
 }
 /* Schedule Model Section End */
 
+
+
+
+/* Schedule Model V2 Section Start */
+.schedule-model-v2 {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  /* background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.8)), url('./assets/model-background.jpg'); */
+  background-size: cover;
+}
+
+.schedule-model-v2-container {
+  width: 60%;
+  height: fit-content;
+  display: flex;
+  margin-top: 70px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--black-color);
+  padding: 0 20px;
+  gap: 1rem;
+}
+
+.schedule-model-v2-container h1 {
+  font-size: var(--font-size-xxl);
+  border-bottom: 3px solid var(--black-color);
+  margin-bottom: 30px;
+}
+
+.custom-schedule {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-schedule .search-box {
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.custom-schedule .search-box .search-form {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+  background: var(--white-color);
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  border: 1px solid var(--black-color);
+}
+
+.custom-schedule .search-box .search-form input {
+  border: none;
+  outline: none;
+  font-size: var(--font-size-m);
+  width: 100%;
+}
+
+.custom-schedule .search-box button {
+  border: none;
+  border-radius: 0 10px 10px 0;
+  padding: 8px 15px;
+  font-size: var(--font-size-m);
+  font-weight: 500;
+  background: var(--red-color);
+  color: var(--white-color);
+  cursor: pointer;
+}
+
+.custom-schedule .search-box button:hover {
+  background: var(--black-color);
+  color: var(--white-color);
+}
+
+.custom-schedule .info-box {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.custom-schedule .info-box i {
+  color: var(--red-color);
+}
+
+.custom-schedule .info-box p {
+  font-size: var(--font-size-s);
+}
+
+.recommended-schedule {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.recommended-schedule .dropdown-box {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--black-color);
+  padding-bottom: 5px;
+  cursor: pointer;
+}
+
+.recommended-schedule .dropdown-box h4 {
+  font-size: var(--font-size-xm);
+}
+
+.recommended-schedule .cards-box {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+  display: none;
+}
+
+.recommended-schedule .cards-box.active {
+  display: grid;
+}
+
+.recommended-schedule .schedule-card {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  border-radius: 5px;
+  background: linear-gradient(to right, var(--white-color), green);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 15px 15px;
+  gap: 15px;
+  cursor: pointer;
+}
+
+.recommended-schedule .schedule-card:hover {
+  opacity: 0.8;
+}
+
+.recommended-schedule .schedule-card .left {
+  flex: 0.35;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.recommended-schedule .schedule-card .left img {
+  width: 100%;
+}
+
+.recommended-schedule .schedule-card .right {
+  flex: 0.65;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+
+.recommended-schedule .schedule-card .right h4 {
+  font-size: var(--font-size-xxl);
+}
+
+.recommended-schedule .schedule-card .right span {
+  width: 100%;
+  font-size: var(--font-size-m);
+  opacity: 0.7;
+  border-bottom: 1px solid var(--black-color);
+}
+
+.recommended-schedule .schedule-card .right li {
+  font-size: var(--font-size-s);
+  position: relative;
+}
+
+.recommended-schedule .schedule-card .right li::before {
+  content: "\2022"; /* Kode Unicode untuk dot */
+  display: inline-block;
+  width: 0.5em; /* Sesuaikan ukuran dot */
+  margin-right: 0.5em; /* Jarak antara dot dan teks */
+  text-align: center;
+}
+/* Schedule Model V2 Section End */
 
 
 
@@ -315,8 +510,8 @@ body {
 
 
 
-/* Question Beginner Section Start */
-.question-beginner-container {
+/* Question Recommended Section Start */
+.question-recommended-container {
   width: 40%;
   height: fit-content;
   display: flex;
@@ -327,13 +522,13 @@ body {
   padding: 30px 35px;
 }
 
-.question-beginner-container h2 {
+.question-recommended-container h2 {
   color: var(--white-color);
   font-size: var(--font-size-xl);
   margin-bottom: 1rem;
 }
 
-.question-beginner-container h4 {
+.question-recommended-container h4 {
   text-align: center;
   font-size: var(--font-size-xm);
   font-weight: 600;
@@ -342,17 +537,17 @@ body {
   margin-bottom: 5px;
 }
 
-.question-beginner-container hr {
+.question-recommended-container hr {
   width: 100%;
 }
 
-.question-beginner-container p {
+.question-recommended-container p {
   text-align: center;
   font-size: var(--font-size-xm);
   color: var(--white-color);
 }
 
-.question-beginner-container .answer-choices {
+.question-recommended-container .answer-choices {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -360,7 +555,7 @@ body {
   gap: 10px;
 }
 
-.question-beginner-container .answer-choices button {
+.question-recommended-container .answer-choices button {
   border: none;
   border-radius: 3px;
   padding: 8px;
@@ -370,19 +565,19 @@ body {
   cursor: pointer;
 }
 
-.question-beginner-container .answer-choices button:hover {
+.question-recommended-container .answer-choices button:hover {
   background: var(--red-color);
   color: var(--light-gray-color);
 }
 
-.question-beginner-container form {
+.question-recommended-container form {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.question-beginner-container .task-item {
+.question-recommended-container .task-item {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -391,7 +586,7 @@ body {
   margin-bottom: 10px;
 }
 
-.question-beginner-container .task-item label {
+.question-recommended-container .task-item label {
   height: 37.2px;
   width: 100%;
   display: flex;
@@ -402,13 +597,13 @@ body {
   border-radius: 3px;
 }
 
-.question-beginner-container form input[type="checkbox"] {
+.question-recommended-container form input[type="checkbox"] {
   margin-right: 5px;
   width: 40px;
   height: 40px;
 }
 
-.question-beginner-container form input[type="submit"] {
+.question-recommended-container form input[type="submit"] {
   padding: 10px 20px;
   margin-top: 10px;
   font-size: var(--font-size-m);
@@ -418,11 +613,11 @@ body {
   border-radius: 3px;
 }
 
-.question-beginner-container form input[type="submit"]:hover {
+.question-recommended-container form input[type="submit"]:hover {
   background: var(--red-color);
   color: var(--light-gray-color);
 }
-/* Question beginner Section End */
+/* Question Recommended Section End */
 
 
 
