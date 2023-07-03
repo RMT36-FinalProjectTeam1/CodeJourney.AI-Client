@@ -23,7 +23,7 @@
 <script>
 import { mapActions, mapState } from 'pinia'
 import { useCounterStore } from '../stores/counter'
-import logos from '../../public/techlogo.json'
+import logos from '../techlogo.json'
 
 export default {
   name: 'DashboardTableData',
@@ -47,7 +47,6 @@ export default {
   },
   created() {
     this.fetchSchedule()
-    console.log(logos)
     // console.log(this.schedule[0].month_1[0].Week_1[0].Day_1.icon)
   }
 }
