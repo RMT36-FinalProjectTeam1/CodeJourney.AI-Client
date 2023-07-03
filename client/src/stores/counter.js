@@ -4,6 +4,9 @@ import axios from 'axios'
 export const useCounterStore = defineStore('counter', {
   state: () => ({
     baseUrl: 'http://localhost:3000',
+    prompt: [],
+    checklistPrompt: [],
+    choicesPrompt: [],
     schedule: [],
     scheduleDetail: [],
     isFailLoadData: false,
@@ -41,6 +44,20 @@ export const useCounterStore = defineStore('counter', {
     handleLogout() {
       localStorage.clear()
       this.router.push('/login')
+    },
+    // Prompt Advanced
+    handlePrompt(description) {
+      this.prompt.push(description)
+      console.log(this.prompt, 'ISI PROMPT')
+    },
+    handleCheckListPrompt(checklist) {
+      this.checklistPrompt = checklist
+      console.log(this.checklistPrompt)
+    },
+    // Prompt Beginner
+    handleChoicePrompt(choices) {
+      this.choicesPrompt = choices
+      console.log(this.choicesPrompt)
     },
     async fetchSchedule() {
       try {

@@ -205,8 +205,8 @@ body {
 }
 
 .schedule-content .schedule-button {
-  width: 50%;
-  height: 100%;
+  width: 280px;
+  height: 145px;
   display: flex;
   flex-direction: column;
   justify-content: center;
