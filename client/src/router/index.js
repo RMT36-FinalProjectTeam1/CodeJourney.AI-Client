@@ -3,8 +3,6 @@ import LoginPage from '../views/LoginPage.vue'
 import RegisterPage from '../views/RegisterPage.vue'
 import HomePage from '../views/HomePage.vue'
 import QuesionerPage from '../views/QuesionerPage.vue'
-import QuesionerAdvancedPage from '../views/QuesionerAdvancedPage.vue'
-import QuesionerBeginnerPage from '../views/QuesionerBeginnerPage.vue'
 import DetailPage from '../views/DetailPage.vue'
 import QuizPage from '../views/QuizPage.vue'
 
@@ -30,16 +28,6 @@ const router = createRouter({
       path: '/quesioner',
       name: 'quesioner',
       component: QuesionerPage
-    },
-    {
-      path: '/quesioner/advanced',
-      name: 'quesionerAdvanced',
-      component: QuesionerAdvancedPage
-    },
-    {
-      path: '/quesioner/beginner',
-      name: 'quesionerBeginner',
-      component: QuesionerBeginnerPage
     },
     {
       path: '/detail/:id',
