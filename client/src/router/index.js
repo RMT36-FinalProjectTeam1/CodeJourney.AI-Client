@@ -74,6 +74,7 @@ router.beforeEach((to, from, next) => {
   if (!isAuthenticated && to.name == 'home') next('/login')
   if (!isAuthenticated && to.name == 'detail') next('/login')
   if (!isAuthenticated && to.name == 'quiz') next('/login')
+  if (!isAuthenticated && to.name == 'Homepagehome') next('/login')
 
   if (isAuthenticated && to.name == 'login') next('/')
   if (isAuthenticated && to.name == 'register') next('/')

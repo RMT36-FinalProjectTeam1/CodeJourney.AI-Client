@@ -37,7 +37,7 @@
         <div class="sidebar-user">
           <span>Welcome, User 1</span>
           <ul>
-            <li>
+            <li @click="handleLogout">
               <i class="bx bx-log-out"></i>
               <span>Logout</span>
             </li>
@@ -50,7 +50,7 @@
 
 <script>
 import { RouterLink } from 'vue-router'
-import { mapState } from 'pinia'
+import { mapState,mapActions } from 'pinia'
 import { useCounterStore } from '../stores/counter'
 export default {
   name: 'Sidebar',
@@ -62,6 +62,9 @@ export default {
   },
   computed: {
     ...mapState(useCounterStore, ['schedules'])
+  },
+  methods:{
+    ...mapActions(useCounterStore,['handleLogout'])
   }
 }
 </script>

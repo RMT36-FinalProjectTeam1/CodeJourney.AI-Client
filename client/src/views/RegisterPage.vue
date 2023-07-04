@@ -5,7 +5,7 @@
         <img src="../assets/pictures/logo-image.png" alt="logo" />
         <h2>Create Your Account</h2>
         <span>Let's get started by creating your account first</span>
-        <form id="register-form" @submit.prevent="handleRegister">
+        <form id="register-form" @submit.prevent="submitRegister">
           <label for="register-username">Username</label>
           <input
             v-model="username"
@@ -35,7 +35,7 @@
           />
           <button type="submit">Register</button>
         </form>
-        <p>Already have an account? <a href="#">Login here</a></p>
+        <p>Already have an account? <RouterLink to="/login">Login here</RouterLink></p>
       </div>
       <div class="right-content">
         <img src="../assets/pictures/login-image.jpg" alt="" />
@@ -47,7 +47,7 @@
 <script>
 import { mapActions } from 'pinia';
 import { useCounterStore } from '../stores/counter';
-
+import { RouterLink } from 'vue-router';
 export default {
   name: 'RegisterPage',
   data() {
