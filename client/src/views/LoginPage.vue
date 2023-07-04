@@ -53,9 +53,6 @@ export default {
     ...mapActions(useCounterStore, ['handleLogin']),
     submitLogin() {
       this.handleLogin(this.email, this.password)
-    },
-    goToRegisterForm() {
-      this.$router.push('/register')
     }
   }
 }

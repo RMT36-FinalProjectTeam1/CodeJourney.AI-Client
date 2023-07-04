@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia'
 import axios from 'axios'
-
+import { notify } from "@kyvg/vue3-notification";
 export const useCounterStore = defineStore('counter', {
   state: () => ({
-    baseUrl: 'http://localhost:3000',
+    baseUrl: 'https://codejourneyai.lrizkitegar.site',
     // Prompt
     customSchedule: false,
     recommendedSchedule: false,
@@ -13,8 +13,8 @@ export const useCounterStore = defineStore('counter', {
     schedules: [],
     scheduleDetail: [],
     isFailLoadData: false,
-    currentMonth:{},
-    lengthMonth:{}
+    currentMonth: {},
+    lengthMonth: {}
   }),
   getters: {
     // doubleCount: (state) => state.count * 2,
@@ -28,9 +28,20 @@ export const useCounterStore = defineStore('counter', {
           data: { email, password }
         })
         localStorage.setItem('access_token', user.data.access_token)
+        notify({
+          title: "Success",
+          text: "Login Success",
+          type:'success'
+        });
         this.router.push('/')
       } catch (err) {
-        console.log(err)
+        const { msg } = err.response.data
+        notify({
+          title: "Login Failed",
+          text: msg,
+          type:'error'
+        });
+        console.log(msg)
       }
     },
     async handleRegister(username, email, password) {
@@ -67,13 +78,13 @@ export const useCounterStore = defineStore('counter', {
     },
     async fetchSchedule() {
       try {
-        let { data:schedules } = await axios({
+        let { data: schedules } = await axios({
           url: this.baseUrl + '/schedule',
           method: 'get'
         })
         this.isFailLoadData = false
         this.schedules = schedules
-        schedules.forEach(el => {
+        schedules.forEach((el) => {
           this.currentMonth[el.name] = 0
           this.lengthMonth[el.name] = 0
         })
@@ -105,6 +116,6 @@ export const useCounterStore = defineStore('counter', {
       } catch (err) {
         console.log(err)
       }
-    },
-  },
+    }
+  }
 })

@@ -2,7 +2,7 @@ import './assets/style.css'
 
 import { createApp, markRaw } from 'vue'
 import { createPinia } from 'pinia'
-
+import Notifications from '@kyvg/vue3-notification'
 import App from './App.vue'
 import router from './router'
 
@@ -15,5 +15,6 @@ pinia.use(({ store }) => {
 
 app.use(pinia)
 app.use(router)
+app.use(Notifications)
 
 app.mount('#app')
