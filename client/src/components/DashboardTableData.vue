@@ -1,5 +1,5 @@
 <template>
-  <tr v-if="schedule[currentMonth - 1]" v-for="(week, index) in schedule[currentMonth - 1]">
+  <tr v-if="schedules[0].schedule[0]" v-for="(week, index) in schedules[0].schedule[0]">
     <td>
       <span>week {{ index + 1 }}</span>
     </td>
@@ -28,7 +28,7 @@ import logos from '../../public/techlogo.json'
 export default {
   name: 'DashboardTableData',
   computed: {
-    ...mapState(useCounterStore, ['schedule', 'currentMonth'])
+    ...mapState(useCounterStore, ['schedules', 'currentMonth'])
   },
   methods: {
     ...mapActions(useCounterStore, ['fetchSchedule']),
@@ -37,7 +37,7 @@ export default {
       task = task.toLowerCase()
       logos.every(el =>{
         if(task.includes(el.name,0)) {
-          logo = `logo/${el.logo}`
+          logo = `/logo/${el.logo}`
           return false
         }
         return true

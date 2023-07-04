@@ -11,7 +11,7 @@ export const useCounterStore = defineStore('counter', {
     recommendedPrompt: [],
     choicesPrompt: [],
     // Schedule
-    schedule: [],
+    schedules: [],
     scheduleDetail: [],
     isFailLoadData: false,
     currentMonth:1
@@ -69,13 +69,13 @@ export const useCounterStore = defineStore('counter', {
     },
     async fetchSchedule() {
       try {
-        let { data: schedule } = await axios({
+        let { data:schedules } = await axios({
           url: this.baseUrl + '/schedule',
           method: 'get'
         })
         this.isFailLoadData = false
-        this.schedule = schedule
-        console.log(schedule[0].month_1)
+        this.schedules = schedules
+        console.log(schedules)
       } catch (err) {
         this.isFailLoadData = true
         console.log(err)
