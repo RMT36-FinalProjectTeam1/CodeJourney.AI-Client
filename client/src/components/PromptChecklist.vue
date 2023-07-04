@@ -1,8 +1,6 @@
 <template>
   <section class="quesioner-checklist">
     <div class="quesioner-checklist-container">
-      <h2 v-if="customSchedule">Custom Schedule</h2>
-      <h2 v-if="recommendedSchedule">Recommended Schedule</h2>
       <hr />
       <p>From here, what do you want to learn?</p>
       <div class="date-item">
@@ -10,34 +8,29 @@
         <input type="date" id="start-date" form="checklist-task" v-model="startDate" />
       </div>
       <div class="task-form">
-        <form id="checklist-task" @submit.prevent="submitCheckListPrompt">
-          <div class="task-item">
-            <input type="checkbox" id="task1" name="task1" v-model="task1" />
-            <label for="task1">Basic Javascript</label>
-          </div>
-          <div class="task-item">
-            <input type="checkbox" id="task2" name="task2" v-model="task2" />
-            <label for="task2">Advance Javascript</label>
-          </div>
-          <div class="task-item">
-            <input type="checkbox" id="task3" name="task3" v-model="task3" />
-            <label for="task3">Basic React</label>
-          </div>
-          <div class="task-item">
-            <input type="checkbox" id="task4" name="task4" v-model="task4" />
-            <label for="task4">React Hooks</label>
-          </div>
-          <div class="task-item">
-            <input type="checkbox" id="task5" name="task5" v-model="task5" />
-            <label for="task5">Redux</label>
+        <form id="checklist-task" @submit.prevent="sendSchedule">
+          <div class="task-item" v-for="task in tasks">
+            <input type="checkbox" v-model="task.include" />
+            <label for="task1">{{ task.task }}</label>
           </div>
         </form>
       </div>
       <div class="task-item all">
-        <input type="checkbox" id="check-all" form="checklist-task" v-model="checkAll" @change="checkAllTasks" />
+        <input
+          type="checkbox"
+          id="check-all"
+          form="checklist-task"
+          v-model="checkAll"
+          @change="checkAllTasks"
+        />
         <label for="check-all">Check All</label>
       </div>
-      <input class="quesioner-checklist-button" type="submit" value="Submit" form="checklist-task" />
+      <input
+        class="quesioner-checklist-button"
+        type="submit"
+        value="Submit"
+        form="checklist-task"
+      />
     </div>
   </section>
 </template>
@@ -51,37 +44,36 @@ export default {
   data() {
     return {
       startDate: '',
-      task1: false,
-      task2: false,
-      task3: false,
-      task4: false,
-      task5: false,
-      checkAll: false
+      checkAll: false,
+      tasks: [],
+      scheduleName : ""
     }
   },
   methods: {
-    ...mapActions(useCounterStore, ['handleCheckListPrompt']),
-    submitCheckListPrompt() {
-      const checklist = {
-        startDate: this.startDate,
-        task1: this.task1,
-        task2: this.task2,
-        task3: this.task3,
-        task4: this.task4,
-        task5: this.task5
-      }
-      this.handleCheckListPrompt(checklist)
-    },
+    ...mapActions(useCounterStore, ['postSchedule']),
     checkAllTasks() {
-      this.task1 = this.checkAll
-      this.task2 = this.checkAll
-      this.task3 = this.checkAll
-      this.task4 = this.checkAll
-      this.task5 = this.checkAll
+      if(this.checkAll){
+        this.tasks.forEach(el =>{
+          el.include = true
+        })
+      }else{
+        this.tasks.forEach(el =>{
+          el.include = false
+        })
+      }
+    },
+    sendSchedule(){
+      const tasks = this.tasks.filter(el => el.include === true)
+      const finalTask = tasks.map(el => {return {task:el.task}})
+      this.postSchedule({
+        startDate:this.startDate,
+        title:this.scheduleName,
+        tasks:finalTask
+      })
     }
   },
   computed: {
-    ...mapState(useCounterStore, ['prompt', 'customSchedule', 'recommendedSchedule'])
+    ...mapState(useCounterStore, ['tempSchedule'])
   },
   mounted() {
     const today = new Date()
@@ -91,6 +83,15 @@ export default {
     let day = today.getDate()
     day = day < 10 ? '0' + day : day
     this.startDate = `${year}-${month}-${day}`
+  },
+  created() {
+    this.scheduleName = this.tempSchedule.title
+    this.tasks = this.tempSchedule.tasks.map(el =>{
+      return {
+        task : el.task,
+        include : false
+      }
+    })
   }
 }
 </script>

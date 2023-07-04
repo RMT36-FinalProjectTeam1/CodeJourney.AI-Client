@@ -10,6 +10,7 @@
           rows="3"
           placeholder="Enter your prompt ..."
           autocomplete="off"
+          v-model="description"
         ></textarea>
         <button type="submit">Generate</button>
       </form>

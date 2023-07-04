@@ -26,7 +26,7 @@ export default {
   methods: {
     divSchedule: (Schedule) => {
       const divSche = []
-      let currentDate = new Date(Schedule.start_date)
+      let currentDate = new Date(Schedule.startDate)
       const { schedule } = Schedule
       schedule.forEach((el) => {
         let day = currentDate.getDay()
