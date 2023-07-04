@@ -1,37 +1,51 @@
 <script>
 import DashboardTable from '../components/DashboardTable.vue'
-import { mapState } from 'pinia'
+import { mapState,mapWritableState } from 'pinia'
 import { useCounterStore } from '../stores/counter'
 export default {
   name: 'Schedule',
   components: {
     DashboardTable
   },
-  data(){
-    return{
-      ScheduleId : 0,
-      Schedule : {},
-      ScheduleDiv : []
+  data() {
+    return {
+      ScheduleId: 0,
+      Schedule: {},
+      ScheduleDiv: [],
     }
   },
-  created(){
+  created() {
     this.ScheduleId = this.$route.params.id
-    console.log(this.schedules);
-    this.Schedule = this.getSchedule(this.schedules,this.ScheduleId)
-
+    this.Schedule = this.schedules.find((el) => el.id == this.ScheduleId)
+    this.ScheduleDiv = this.divSchedule(this.Schedule)
   },
-  computed:{
-    ...mapState(useCounterStore,['schedules'])
+  computed: {
+    ...mapState(useCounterStore, ['schedules','lengthMonth']),
+    ...mapWritableState(useCounterStore,['currentMonth'])
   },
-  methods:{
-    getSchedule : (schedules,id)=>{
-      return schedules.find(el => el.id == id)
-    },
-    divSchedule : (Schedule) =>{
+  methods: {
+    divSchedule: (Schedule) => {
       const divSche = []
-      const startDate = new Date(Schedule.start_date)
-      const day = startDate.getDay()
-      const {schedule} = Schedule
+      let currentDate = new Date(Schedule.start_date)
+      const { schedule } = Schedule
+      schedule.forEach((el) => {
+        let day = currentDate.getDay()
+        if (day === 6) currentDate.setDate(currentDate.getDate() + 2)
+        if (day === 0) currentDate.setDate(currentDate.getDate() + 1)
+        el.date = new Date(currentDate)
+        currentDate.setDate(currentDate.getDate() + 1)
+      })
+      return schedule
+    },
+    increaseMonth() {
+      if (this.currentMonth[this.Schedule.name] !== this.lengthMonth[this.Schedule.name]) {
+        this.currentMonth[this.Schedule.name]++
+      }
+    },
+    decreaseMonth() {
+      if (this.currentMonth[this.Schedule.name] !== 0) {
+        this.currentMonth[this.Schedule.name]--
+      }
     }
   }
 }
@@ -55,12 +69,12 @@ export default {
         <hr />
       </div>
       <div class="dashboard-month">
-        <i class="bx bx-left-arrow-alt"></i>
+        <i class="bx bx-left-arrow-alt" @click="decreaseMonth"></i>
         <span>Month 1</span>
-        <i class="bx bx-right-arrow-alt"></i>
+        <i class="bx bx-right-arrow-alt" @click="increaseMonth"></i>
       </div>
       <div class="dashboard-table">
-        <DashboardTable/>
+        <DashboardTable :schedule="ScheduleDiv" :scName="Schedule.name"/>
       </div>
     </div>
   </section>

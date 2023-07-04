@@ -11,7 +11,7 @@
       </tr>
     </thead>
     <tbody>
-      <DashboardTableData />
+      <DashboardTableData :schedule="schedule" :scName="scName"/>
     </tbody>
   </table>
 </template>
@@ -21,6 +21,7 @@ import DashboardTableData from './DashboardTableData.vue';
 
 export default {
   name: 'DashboardTable',
+  props:['schedule','scName'],
   components: {
     DashboardTableData
   }
