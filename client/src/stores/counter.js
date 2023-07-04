@@ -46,6 +46,7 @@ export const useCounterStore = defineStore('counter', {
     },
     async handleRegister(username, email, password) {
       try {
+        console.log({username, email, password});
         let user = await axios({
           url: this.baseUrl + '/register',
           method: 'post',
@@ -53,6 +54,12 @@ export const useCounterStore = defineStore('counter', {
         })
         this.router.push('/login')
       } catch (err) {
+        const { msg } = err.response.data
+        notify({
+          title: "Register Failed",
+          text: msg,
+          type:'error'
+        });
         console.log(err)
       }
     },

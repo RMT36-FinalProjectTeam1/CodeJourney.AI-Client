@@ -5,7 +5,7 @@
         <img src="../assets/pictures/logo-image.png" alt="logo" />
         <h2>Create Your Account</h2>
         <span>Let's get started by creating your account first</span>
-        <form id="register-form" @submit.prevent="handleRegister">
+        <form id="register-form" @submit.prevent="submitRegister">
           <label for="register-username">Username</label>
           <input
             v-model="username"
