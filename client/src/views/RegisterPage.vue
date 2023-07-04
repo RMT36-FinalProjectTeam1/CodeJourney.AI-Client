@@ -35,7 +35,7 @@
           />
           <button type="submit">Register</button>
         </form>
-        <p>Already have an account? <a href="#">Login here</a></p>
+        <p>Already have an account? <RouterLink to="/login">Login here</RouterLink></p>
       </div>
       <div class="right-content">
         <img src="../assets/pictures/login-image.jpg" alt="" />
@@ -47,7 +47,7 @@
 <script>
 import { mapActions } from 'pinia';
 import { useCounterStore } from '../stores/counter';
-
+import { RouterLink } from 'vue-router';
 export default {
   name: 'RegisterPage',
   data() {
