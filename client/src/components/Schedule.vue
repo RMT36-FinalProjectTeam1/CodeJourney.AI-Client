@@ -16,26 +16,39 @@ export default {
   },
   created() {
     this.ScheduleId = this.$route.params.id
-    this.Schedule = this.schedules.find((el) => el.id == this.ScheduleId)
+    this.Schedule = this.schedules.find((el) => el._id == this.ScheduleId)
     this.ScheduleDiv = this.divSchedule(this.Schedule)
   },
   computed: {
     ...mapState(useCounterStore, ['schedules','lengthMonth']),
-    ...mapWritableState(useCounterStore,['currentMonth'])
+    ...mapWritableState(useCounterStore,['currentMonth']),
+    getDuration(){
+      const days = this.ScheduleDiv.length
+      if(days < 24) return `${days} days`
+      else return `${(days-(days%4))/4 + 1} weeks`
+    },
+    getProgress(){
+      const maxTask = this.ScheduleDiv.length
+      const completeTask = 0
+      this.ScheduleDiv.forEach(el =>{
+        if(el.complete) completeTask++
+      })
+      return Math.ceil(completeTask/maxTask*100)
+    }
   },
   methods: {
     divSchedule: (Schedule) => {
       const divSche = []
       let currentDate = new Date(Schedule.startDate)
-      const { schedule } = Schedule
-      schedule.forEach((el) => {
+      const { schedules } = Schedule
+      schedules.forEach((el) => {
         let day = currentDate.getDay()
         if (day === 6) currentDate.setDate(currentDate.getDate() + 2)
         if (day === 0) currentDate.setDate(currentDate.getDate() + 1)
         el.date = new Date(currentDate)
         currentDate.setDate(currentDate.getDate() + 1)
       })
-      return schedule
+      return schedules
     },
     increaseMonth() {
       if (this.currentMonth[this.Schedule.name] !== this.lengthMonth[this.Schedule.name]) {
@@ -55,16 +68,16 @@ export default {
     <div class="dashboard-container">
       <div class="dashboard-header">
         <div class="name-delete">
-          <h1>{{ Schedule.name }}</h1>
+          <h1>{{ Schedule.scheduleTitle }}</h1>
           <button><i class="bx bx-x-circle"></i>Delete Schedule</button>
         </div>
-        <p>Estimated Time: 4 Months</p>
+        <p>Estimated Time: {{ getDuration }}</p>
         <div class="progress-bar">
           <div class="percentage">
             <p>Goals Reached</p>
-            <p>54%</p>
+            <p>{{getProgress}}%</p>
           </div>
-          <progress max="100" value="54"></progress>
+          <progress max="100" :value="getProgress"></progress>
         </div>
         <hr />
       </div>

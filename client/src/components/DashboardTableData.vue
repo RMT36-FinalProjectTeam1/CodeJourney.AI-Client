@@ -9,7 +9,7 @@
           <img :src="setLogo(week[indexFinder(day,week)].task)" alt="" />
         </div>
         <div class="content">
-          <span>Complete</span>
+          <span>{{ setStatus(week[indexFinder(day,week)].complete) }}</span>
           <p>{{ week[indexFinder(day,week)].task }}</p>
         </div>
       </div>
@@ -50,6 +50,10 @@ export default {
     },
     indexFinder(day,week){
       return week.findIndex(el => el.date.getDay() === day)
+    },
+    setStatus(status){
+      if(status) return 'Completed'
+      else return 'Uncomplete'
     }
   },
   created() {

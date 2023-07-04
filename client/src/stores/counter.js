@@ -141,6 +141,7 @@ export const useCounterStore = defineStore('counter', {
           this.currentMonth[el.name] = 0
           this.lengthMonth[el.name] = 0
         })
+        console.log(schedules);
       } catch (err) {
         this.isFailLoadData = true
         console.log(err)
