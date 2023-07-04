@@ -11,83 +11,73 @@
       "password": "123456"
     }
   ],
-  "schedule": [
-    {
-      "id": 1,
-      "name": "React JS",
-      "start_date": "2023/07/03",
-      "schedule": [
-        [
-          [
-            {
-              "task": "Learn the basics of Javascript"
-            },
-            {
-              "task": "Learn the React basics like components, props and states"
-            },
-            {
-              "task": "Understand the state and props flow in React"
-            },
-            {
-              "task": "Learn the fundamentals of React Router"
-            },
-            {
-              "task": "Learn the basics of React lifecycle methods"
-            }
-          ],
-          [
-            {
-              "task": "Learn data handling in React"
-            },
-            {
-              "task": "Learn to use Redux with React"
-            },
-            {
-              "task": "Learn to use Hooks in React"
-            },
-            {
-              "task": "Learn to create custom Hooks"
-            },
-            {
-              "task": "Learn to use React Context API"
-            }
-          ],
-          [
-            {
-              "task": "Learn to use React Testing Library"
-            },
-            {
-              "task": "Learn to use component libraries in React"
-            },
-            {
-              "task": "Learn to use React Native"
-            },
-            {
-              "task": "Learn to create advanced animations in React"
-            },
-            {
-              "task": "Learn to build React applications with GraphQL"
-            }
-          ],
-          [
-            {
-              "task": "Learn to build applications with React and Node"
-            },
-            {
-              "task": "Learn to use React in server side rendering"
-            },
-            {
-              "task": "Learn to use React middleware"
-            },
-            {
-              "task": "Learn to use React-Redux for state management"
-            },
-            {
-              "task": "Learn to create custom reusable components in React"
-            }
-          ]
+    "schedule": [
+      {
+        "id": 1,
+        "name":"react JS",
+        "start_date": "2023/07/13",
+        "schedule": [
+          {
+            "task": "Learn the basics of Javascript"
+          },
+          {
+            "task": "Learn the React basics like components, props and states"
+          },
+          {
+            "task": "Understand the state and props flow in React"
+          },
+          {
+            "task": "Learn the fundamentals of React Router"
+          },
+          {
+            "task": "Learn the basics of React lifecycle methods"
+          },
+          {
+            "task": "Learn data handling in React"
+          },
+          {
+            "task": "Learn to use Redux with React"
+          },
+          {
+            "task": "Learn to use Hooks in React"
+          },
+          {
+            "task": "Learn to create custom Hooks"
+          },
+          {
+            "task": "Learn to use React Context API"
+          },
+          {
+            "task": "Learn to use React Testing Library"
+          },
+          {
+            "task": "Learn to use component libraries in React"
+          },
+          {
+            "task": "Learn to use React Native"
+          },
+          {
+            "task": "Learn to create advanced animations in React"
+          },
+          {
+            "task": "Learn to build React applications with GraphQL"
+          },
+          {
+            "task": "Learn to build applications with React and Node"
+          },
+          {
+            "task": "Learn to use React in server side rendering"
+          },
+          {
+            "task": "Learn to use React middleware"
+          },
+          {
+            "task": "Learn to use React-Redux for state management"
+          },
+          {
+            "task": "Learn to create custom reusable components in React"
+          }
         ]
-      ]
-    }
-  ]
+      }
+    ]
 }
