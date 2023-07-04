@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import axios from 'axios'
-import { notify } from "@kyvg/vue3-notification";
+import { notify } from '@kyvg/vue3-notification'
 export const useCounterStore = defineStore('counter', {
   state: () => ({
     baseUrl: 'https://codejourneyai.lrizkitegar.site',
@@ -9,6 +9,7 @@ export const useCounterStore = defineStore('counter', {
     recommendedSchedule: false,
     prompt: [],
     checklistPrompt: [],
+    tempSchedule:{},
     // Schedule
     schedules: [],
     scheduleDetail: [],
@@ -29,24 +30,24 @@ export const useCounterStore = defineStore('counter', {
         })
         localStorage.setItem('access_token', user.data.access_token)
         notify({
-          title: "Success",
-          text: "Login Success",
-          type:'success'
-        });
+          title: 'Success',
+          text: 'Login Success',
+          type: 'success'
+        })
         this.router.push('/')
       } catch (err) {
         const { msg } = err.response.data
         notify({
-          title: "Login Failed",
+          title: 'Login Failed',
           text: msg,
-          type:'error'
-        });
+          type: 'error'
+        })
         console.log(msg)
       }
     },
     async handleRegister(username, email, password) {
       try {
-        console.log({username, email, password});
+        console.log({ username, email, password })
         let user = await axios({
           url: this.baseUrl + '/register',
           method: 'post',
@@ -56,10 +57,10 @@ export const useCounterStore = defineStore('counter', {
       } catch (err) {
         const { msg } = err.response.data
         notify({
-          title: "Register Failed",
+          title: 'Register Failed',
           text: msg,
-          type:'error'
-        });
+          type: 'error'
+        })
         console.log(err)
       }
     },
@@ -67,27 +68,72 @@ export const useCounterStore = defineStore('counter', {
       localStorage.clear()
       this.router.push('/login')
     },
-    handleCustomPrompt(description) {
-      this.prompt.push(description)
-      this.customSchedule = true
-      console.log(this.prompt, 'ISI PROMPT CUSTOM')
+    async handleCustomPrompt(description) {
+      // this.prompt.push(description)
+      // console.log(description, 'ISI PROMPT CUSTOM')
+      try {
+        const { data } = await axios({
+          url: this.baseUrl + '/generatecustomtask',
+          method: 'post',
+          headers: {
+            access_token: localStorage.getItem('access_token')
+          },
+          data: {
+            prompt: description
+          }
+        })
+        this.tempSchedule = data
+        this.customSchedule = true
+      } catch (err) {
+        const { msg } = err.response.data
+        notify({
+          title: 'Error Prompting',
+          text: msg,
+          type: 'error'
+        })
+        console.log(error)
+      }
     },
     handleRecommendedPrompt(description) {
       this.prompt.push(description)
       this.recommendedSchedule = true
       console.log(this.prompt, 'ISI PROMPT RECOMMENDED')
     },
-    handleCheckListPrompt(checklist) {
-      this.checklistPrompt = checklist
-      console.log(this.checklistPrompt)
-      console.log(this.customSchedule, 'INI CUSTOM')
-      console.log(this.recommendedSchedule, 'INI RECOMMENDED')
+    async postSchedule(schedule) {
+      console.log(schedule);
+      try {
+        const {data} = await axios({
+          url:this.baseUrl+'/schedules',
+          method:'POST',
+          headers:{
+            access_token:localStorage.getItem('access_token')
+          },
+          data:schedule
+        })
+        notify({
+          title: 'Success',
+          text: data.msg,
+          type: 'success'
+        })
+        this.router.push('/')
+      } catch (error) {
+        const { msg } = err.response.data
+        notify({
+          title: 'Error',
+          text: msg,
+          type: 'error'
+        })
+        console.log(error);
+      }
     },
     async fetchSchedule() {
       try {
         let { data: schedules } = await axios({
-          url: this.baseUrl + '/schedule',
-          method: 'get'
+          url: this.baseUrl + '/schedules',
+          method: 'get',
+          headers:{
+            access_token:localStorage.getItem('access_token')
+          }
         })
         this.isFailLoadData = false
         this.schedules = schedules

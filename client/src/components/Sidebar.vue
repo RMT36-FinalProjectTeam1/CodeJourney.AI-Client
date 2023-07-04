@@ -17,12 +17,8 @@
                 <li v-for="schedule in schedules">
                   <i class="bx bx-minus"></i>
                   <span
-                    ><RouterLink to="/schedule/1">{{ schedule.name }}</RouterLink></span
+                    ><RouterLink class="router-link" :to="`/schedule/${schedule._id}`">{{ schedule.scheduleTitle }}</RouterLink></span
                   >
-                </li>
-                <li>
-                  <i class="bx bx-minus"></i>
-                  <span><RouterLink to="/schedule/2">Basic Javascript</RouterLink></span>
                 </li>
               </ul>
             </div>
@@ -72,5 +68,9 @@ export default {
 <style scoped>
 li {
   color: #ffffff;
+}
+.router-link{
+  font-weight: 200;
+  color:#ffffff;
 }
 </style>
