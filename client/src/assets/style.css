@@ -169,6 +169,152 @@ body {
 
 
 
+/* LATEST UPDATE */
+/* Schedule Model New Section Start */
+.schedule-model-new {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.schedule-model-new-container {
+  width: 40%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--black-color);
+  color: var(--black-color);
+  padding: 0 20px;
+  gap: 1rem;
+}
+
+.schedule-model-new-container .schedule-content {
+  flex: 0.6;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  gap: 20px;
+}
+
+.schedule-model-new-container .schedule-content .schedule-button {
+  width: 275px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  background: var(--light-gray-color);
+  cursor: pointer;
+}
+
+.schedule-model-new-container .schedule-content .schedule-button:hover {
+  background: var(--red-color);
+  color: var(--light-gray-color);
+}
+
+.schedule-model-new-container .schedule-content .schedule-button i {
+  font-size: 70px;
+}
+
+.schedule-model-new-container h2 {
+  color: var(--white-color);
+  font-size: var(--font-size-xl);
+}
+
+.schedule-model-new-container hr {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.schedule-model-new-container .schedule-description {
+  flex: 0.2;
+  width: 100%;
+  height: 100%;
+  background: var(--light-gray-color);
+  opacity: 0.5;
+  border-radius: 3px;
+  padding: 7px;
+  font-size: var(--font-size-s);
+}
+
+.schedule-model-new-container .schedule-description i {
+  font-size: var(--font-size-m);
+}
+/* Schedule Model New Section End */
+
+
+/* LATEST UPDATE */
+/* Advanced Model Section Start */
+.advanced-model {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.advanced-model-container {
+  width: 40%;
+  height: 37.5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--black-color);
+  color: var(--light-gray-color);
+  padding: 20px;
+  gap: 1rem;
+}
+
+.advanced-model-container hr {
+  width: 100%;
+}
+
+#advanced-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#advanced-form label {
+  opacity: 0.8;
+  font-size: var(--font-size-m);
+  font-weight: 200;
+  margin-bottom: 7px;
+}
+
+#advanced-form textarea {
+  outline: none;
+  border-radius: 3px;
+  resize: none;
+  padding: 5px 8px;
+  font-size: var(--font-size-m);
+  margin-bottom: 10px;
+}
+
+#advanced-form button {
+  border: none;
+  border-radius: 3px;
+  padding: 8px;
+  font-size: var(--font-size-m);
+  font-weight: 500;
+  background: var(--light-gray-color);
+  cursor: pointer;
+}
+
+#advanced-form button:hover {
+  background: var(--red-color);
+  color: var(--light-gray-color);
+}
+/* Advanced Model Section End */
+
+
+
 
 
 /* Schedule Model Section Start */
@@ -293,12 +439,12 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1.5rem;
-  display: none;
+  /* display: none; */
 }
 
-.recommended-schedule .cards-box.active {
+/* .recommended-schedule .cards-box.active {
   display: grid;
-}
+} */
 
 .recommended-schedule .schedule-card {
   display: flex;
@@ -306,7 +452,7 @@ body {
   width: 100%;
   align-items: center;
   border-radius: 5px;
-  background: linear-gradient(to right, var(--white-color), green);
+  background: linear-gradient(to right, var(--white-color), #3FB984);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   padding: 15px 15px;
   gap: 15px;
@@ -355,10 +501,10 @@ body {
 }
 
 .recommended-schedule .schedule-card .right li::before {
-  content: "\2022"; /* Kode Unicode untuk dot */
+  content: "\2022";
   display: inline-block;
-  width: 0.5em; /* Sesuaikan ukuran dot */
-  margin-right: 0.5em; /* Jarak antara dot dan teks */
+  width: 0.5em;
+  margin-right: 0.5em;
   text-align: center;
 }
 /* Schedule Model Section End */
@@ -899,23 +1045,34 @@ td:not(:first-child) {
   background: var(--red-color);
 }
 
+.detail-content {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
 .youtube-container {
-  background: #282634;
+  flex: 0.65;
   position: relative;
   width: 100%;
-  padding-bottom: 40%;
+  height: 500px;
+  display: flex;
 }
 
 .youtube-video {
   position: absolute;
-  width: 70%;
-  height: 99.9%;
-  top: 0;
-  left: 185px;
+  width: 100%;
+  height: 100%;
+}
+
+.references-container {
+  flex: 0.35;
+  width: 100%;
 }
 
 .references-container h2 {
-  margin-top: 35px;
   margin-bottom: 15px;
   font-size: var(--font-size-xl-1);
   font-weight: 500;
@@ -934,7 +1091,7 @@ td:not(:first-child) {
 .references-container a {
   border: none;
   border-radius: 3px;
-  padding: 10px 15px;
+  padding: 5px 10px;
   font-size: var(--font-size-m);
   font-weight: 500;
   background: var(--white-color);
@@ -948,14 +1105,14 @@ td:not(:first-child) {
 }
 
 .accordion {
-  width: 700px;
+  width: 100%;
 }
 
 .accordion li {
   list-style: none;
   width: 100%;
   margin-bottom: 15px;
-  padding: 10px;
+  padding: 5px;
   border-radius: 5px;
   background: var(--black-color);
   color: var(--white-color);
@@ -964,7 +1121,7 @@ td:not(:first-child) {
 .accordion label {
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 5px;
   font-size: var(--font-size-m);
   font-weight: 500;
   cursor: pointer;
@@ -982,7 +1139,7 @@ td:not(:first-child) {
 }
 
 .accordion .content {
-  padding: 0 10px;
+  padding: 0 5px;
   line-height: 25px;
   max-height: 0;
   overflow: hidden;
@@ -991,7 +1148,7 @@ td:not(:first-child) {
 
 .accordion input[type="radio"]:checked + label + .content {
   max-height: 400px;
-  padding: 10px 10px 20px;
+  padding: 5px 5px 15px;
 }
 
 .accordion input[type="radio"]:checked + label::before {

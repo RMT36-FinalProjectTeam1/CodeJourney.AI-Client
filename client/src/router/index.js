@@ -2,7 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import LoginPage from '../views/LoginPage.vue'
 import RegisterPage from '../views/RegisterPage.vue'
 import HomePage from '../views/HomePage.vue'
-import QuesionerPage from '../views/QuesionerPage.vue'
+import PromptPage from '../views/PromptPage.vue'
+import PromptCustomPage from '../views/PromptCustomPage.vue'
+import PromptRecommendedPage from '../views/PromptRecommendedPage.vue'
 import DetailPage from '../views/DetailPage.vue'
 import QuizPage from '../views/QuizPage.vue'
 import Home from '../components/Home.vue'
@@ -40,9 +42,19 @@ const router = createRouter({
       ]
     },
     {
-      path: '/quesioner',
-      name: 'quesioner',
-      component: QuesionerPage
+      path: '/prompt',
+      name: 'prompt',
+      component: PromptPage
+    },
+    {
+      path: '/prompt/custom',
+      name: 'promptCustom',
+      component: PromptCustomPage
+    },
+    {
+      path: '/prompt/recommended',
+      name: 'promptRecommended',
+      component: PromptRecommendedPage
     },
     {
       path: '/detail/:id',

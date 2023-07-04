@@ -48,21 +48,21 @@ import { mapActions } from 'pinia'
 import { useCounterStore } from '../stores/counter'
 
 export default {
-  name: 'QuesionerRecommendedCard',
+  name: 'PromptRecommendedCard',
   methods: {
     ...mapActions(useCounterStore, ['handleRecommendedPrompt']),
     submitRecommendedPrompt(id) {
       this.handleRecommendedPrompt(id)
     }
   },
-  mounted() {
-    let dropdownBox = document.querySelector('.dropdown-box')
-    let cardsBox = document.querySelector('.cards-box')
+  // mounted() {
+  //   let dropdownBox = document.querySelector('.dropdown-box')
+  //   let cardsBox = document.querySelector('.cards-box')
 
-    dropdownBox.onclick = () => {
-      cardsBox.classList.toggle('active')
-    }
-  }
+  //   dropdownBox.onclick = () => {
+  //     cardsBox.classList.toggle('active')
+  //   }
+  // }
 }
 </script>
 

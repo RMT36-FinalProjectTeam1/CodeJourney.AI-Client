@@ -47,7 +47,7 @@ import { mapActions, mapState } from 'pinia'
 import { useCounterStore } from '../stores/counter'
 
 export default {
-  name: 'QuesionerChecklist',
+  name: 'PromptChecklist',
   data() {
     return {
       startDate: '',
