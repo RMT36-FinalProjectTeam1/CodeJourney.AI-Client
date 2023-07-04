@@ -4,7 +4,13 @@ import axios from 'axios'
 export const useCounterStore = defineStore('counter', {
   state: () => ({
     baseUrl: 'http://localhost:3000',
-    schedule: [],
+    // Prompt
+    customSchedule: false,
+    recommendedSchedule: false,
+    prompt: [],
+    checklistPrompt: [],
+    // Schedule
+    schedules: [],
     scheduleDetail: [],
     isFailLoadData: false,
     currentMonth:1
@@ -42,15 +48,31 @@ export const useCounterStore = defineStore('counter', {
       localStorage.clear()
       this.router.push('/login')
     },
+    handleCustomPrompt(description) {
+      this.prompt.push(description)
+      this.customSchedule = true
+      console.log(this.prompt, 'ISI PROMPT CUSTOM')
+    },
+    handleRecommendedPrompt(description) {
+      this.prompt.push(description)
+      this.recommendedSchedule = true
+      console.log(this.prompt, 'ISI PROMPT RECOMMENDED')
+    },
+    handleCheckListPrompt(checklist) {
+      this.checklistPrompt = checklist
+      console.log(this.checklistPrompt)
+      console.log(this.customSchedule, 'INI CUSTOM')
+      console.log(this.recommendedSchedule, 'INI RECOMMENDED')
+    },
     async fetchSchedule() {
       try {
-        let { data: schedule } = await axios({
+        let { data:schedules } = await axios({
           url: this.baseUrl + '/schedule',
           method: 'get'
         })
         this.isFailLoadData = false
-        this.schedule = schedule
-        console.log(schedule[0].month_1)
+        this.schedules = schedules
+        console.log(schedules)
       } catch (err) {
         this.isFailLoadData = true
         console.log(err)

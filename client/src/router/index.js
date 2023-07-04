@@ -1,10 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import LoginPage from '../views/LoginPage.vue'
 import RegisterPage from '../views/RegisterPage.vue'
-import QuesionerPage from '../views/QuesionerPage.vue'
 import HomePage from '../views/HomePage.vue'
+import QuesionerPage from '../views/QuesionerPage.vue'
 import DetailPage from '../views/DetailPage.vue'
 import QuizPage from '../views/QuizPage.vue'
+import Home from '../components/Home.vue'
+import Schedule from '../components/Schedule.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -20,14 +23,26 @@ const router = createRouter({
       component: RegisterPage
     },
     {
+      path: '/',
+      name: 'home',
+      component: HomePage,
+      children:[
+        {
+          path : '/',
+          name : 'Homepagehome',
+          component:Home
+        },
+        {
+          path : '/schedule/:id',
+          name : 'SchedulePage',
+          component:Schedule
+        }
+      ]
+    },
+    {
       path: '/quesioner',
       name: 'quesioner',
       component: QuesionerPage
-    },
-    {
-      path: '/',
-      name: 'home',
-      component: HomePage
     },
     {
       path: '/detail/:id',

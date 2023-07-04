@@ -11,96 +11,76 @@
       "password": "123456"
     }
   ],
-  "schedule": [
-    [
+    "schedule": [
       [
-        {
-          "task": "Learn the basics of Javascript",
-          "date": "2023-07-03T15:36:43.498Z"
-        },
-        {
-          "task": "Learn the React basics like components, props and states",
-          "date": "2023-07-04T15:36:43.498Z"
-        },
-        {
-          "task": "Understand the state and props flow in React",
-          "date": "2023-07-05T15:36:43.498Z"
-        },
-        {
-          "task": "Learn the fundamentals of React Router",
-          "date": "2023-07-06T15:36:43.498Z"
-        },
-        {
-          "task": "Learn the basics of React lifecycle methods",
-          "date": "2023-07-07T15:36:43.498Z"
-        }
-      ],
-      [
-        {
-          "task": "Learn data handling in React",
-          "date": "2023-07-08T15:36:43.498Z"
-        },
-        {
-          "task": "Learn to use Redux with React",
-          "date": "2023-07-09T15:36:43.498Z"
-        },
-        {
-          "task": "Learn to use Hooks in React",
-          "date": "2023-07-10T15:36:43.498Z"
-        },
-        {
-          "task": "Learn to create custom Hooks",
-          "date": "2023-07-11T15:36:43.498Z"
-        },
-        {
-          "task": "Learn to use React Context API",
-          "date": "2023-07-12T15:36:43.498Z"
-        }
-      ],
-      [
-        {
-          "task": "Learn to use React Testing Library",
-          "date": "2023-07-13T15:36:43.498Z"
-        },
-        {
-          "task": "Learn to use component libraries in React",
-          "date": "2023-07-14T15:36:43.498Z"
-        },
-        {
-          "task": "Learn to use React Native",
-          "date": "2023-07-15T15:36:43.498Z"
-        },
-        {
-          "task": "Learn to create advanced animations in React",
-          "date": "2023-07-16T15:36:43.498Z"
-        },
-        {
-          "task": "Learn to build React applications with GraphQL",
-          "date": "2023-07-17T15:36:43.498Z"
-        }
-      ],
-      [
-        {
-          "task": "Learn to build applications with React and Node",
-          "date": "2023-07-18T15:36:43.498Z"
-        },
-        {
-          "task": "Learn to use React in server side rendering",
-          "date": "2023-07-19T15:36:43.498Z"
-        },
-        {
-          "task": "Learn to use React middleware",
-          "date": "2023-07-20T15:36:43.498Z"
-        },
-        {
-          "task": "Learn to use React-Redux for state management",
-          "date": "2023-07-21T15:36:43.498Z"
-        },
-        {
-          "task": "Learn to create custom reusable components in React",
-          "date": "2023-07-22T15:36:43.498Z"
-        }
+        [
+          {
+            "task": "Learn the basics of Javascript"
+          },
+          {
+            "task": "Learn the React basics like components, props and states"
+          },
+          {
+            "task": "Understand the state and props flow in React"
+          },
+          {
+            "task": "Learn the fundamentals of React Router"
+          },
+          {
+            "task": "Learn the basics of React lifecycle methods"
+          }
+        ],
+        [
+          {
+            "task": "Learn data handling in React"
+          },
+          {
+            "task": "Learn to use Redux with React"
+          },
+          {
+            "task": "Learn to use Hooks in React"
+          },
+          {
+            "task": "Learn to create custom Hooks"
+          },
+          {
+            "task": "Learn to use React Context API"
+          }
+        ],
+        [
+          {
+            "task": "Learn to use React Testing Library"
+          },
+          {
+            "task": "Learn to use component libraries in React"
+          },
+          {
+            "task": "Learn to use React Native"
+          },
+          {
+            "task": "Learn to create advanced animations in React"
+          },
+          {
+            "task": "Learn to build React applications with GraphQL"
+          }
+        ],
+        [
+          {
+            "task": "Learn to build applications with React and Node"
+          },
+          {
+            "task": "Learn to use React in server side rendering"
+          },
+          {
+            "task": "Learn to use React middleware"
+          },
+          {
+            "task": "Learn to use React-Redux for state management"
+          },
+          {
+            "task": "Learn to create custom reusable components in React"
+          }
+        ]
       ]
     ]
-  ]
 }

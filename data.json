@@ -1,0 +1,37 @@
+[
+  { "task": "Learn the basics of Javascript", "complete": false },
+  {
+    "task": "Learn the React basics like components, props and states",
+    "complete": false
+  },
+  { "task": "Understand the state and props flow in React", "complete": false },
+  { "task": "Learn the fundamentals of React Router", "complete": false },
+  { "task": "Learn the basics of React lifecycle methods", "complete": false },
+  { "task": "Learn data handling in React", "complete": false },
+  { "task": "Learn to use Redux with React", "complete": false },
+  { "task": "Learn to use Hooks in React", "complete": false },
+  { "task": "Learn to create custom Hooks", "complete": false },
+  { "task": "Learn to use React Context API", "complete": false },
+  { "task": "Learn to use React Testing Library", "complete": false },
+  { "task": "Learn to use component libraries in React", "complete": false },
+  { "task": "Learn to use React Native", "complete": false },
+  { "task": "Learn to create advanced animations in React", "complete": false },
+  {
+    "task": "Learn to build React applications with GraphQL",
+    "complete": false
+  },
+  {
+    "task": "Learn to build applications with React and Node",
+    "complete": false
+  },
+  { "task": "Learn to use React in server side rendering", "complete": false },
+  { "task": "Learn to use React middleware", "complete": false },
+  {
+    "task": "Learn to use React-Redux for state management",
+    "complete": false
+  },
+  {
+    "task": "Learn to create custom reusable components in React",
+    "complete": false
+  }
+]

@@ -12,26 +12,26 @@
               <span>Schedules</span>
               <i class="bx bxs-down-arrow"></i>
             </li>
-            <div class="the-schedule">
+            <div class="the-schedule" v-if="schedules">
               <ul>
-                <li>
+                <li v-for="schedule in schedules">
                   <i class="bx bx-minus"></i>
-                  <span>Schedule 1</span>
+                  <span
+                    ><RouterLink to="/schedule/1">{{ schedule.name }}</RouterLink></span
+                  >
                 </li>
                 <li>
                   <i class="bx bx-minus"></i>
-                  <span>Schedule 1</span>
-                </li>
-                <li>
-                  <i class="bx bx-minus"></i>
-                  <span>Schedule 3</span>
+                  <span><RouterLink to="/schedule/2">Basic Javascript</RouterLink></span>
                 </li>
               </ul>
             </div>
-            <li>
-              <i class="bx bxs-plus-circle"></i>
-              <span>Add New Schedule</span>
-            </li>
+            <RouterLink to="/quesioner">
+              <li>
+                <i class="bx bxs-plus-circle"></i>
+                <span>Add New Schedule</span>
+              </li>
+            </RouterLink>
           </ul>
         </div>
         <div class="sidebar-user">
@@ -49,9 +49,25 @@
 </template>
 
 <script>
+import { RouterLink } from 'vue-router'
+import { mapState } from 'pinia'
+import { useCounterStore } from '../stores/counter'
 export default {
-  name: 'Sidebar'
+  name: 'Sidebar',
+  mounted() {
+    let schedules = document.querySelector('.sidebar-schedules')
+    schedules.onclick = () => {
+      schedules.classList.toggle('active')
+    }
+  },
+  computed: {
+    ...mapState(useCounterStore, ['schedules'])
+  }
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+li {
+  color: #ffffff;
+}
+</style>
