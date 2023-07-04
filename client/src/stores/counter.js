@@ -4,12 +4,11 @@ import axios from 'axios'
 export const useCounterStore = defineStore('counter', {
   state: () => ({
     baseUrl: 'http://localhost:3000',
-    // Advanced
-    advancedPrompt: [],
+    // Prompt
+    customSchedule: false,
+    recommendedSchedule: false,
+    prompt: [],
     checklistPrompt: [],
-    // Recommended
-    recommendedPrompt: [],
-    choicesPrompt: [],
     // Schedule
     schedules: [],
     scheduleDetail: [],
@@ -49,23 +48,21 @@ export const useCounterStore = defineStore('counter', {
       localStorage.clear()
       this.router.push('/login')
     },
-    // Prompt Advanced
-    handleAdvancedPrompt(description) {
-      this.advancedPrompt.push(description)
-      console.log(this.advancedPrompt, 'ISI PROMPT')
+    handleCustomPrompt(description) {
+      this.prompt.push(description)
+      this.customSchedule = true
+      console.log(this.prompt, 'ISI PROMPT CUSTOM')
+    },
+    handleRecommendedPrompt(description) {
+      this.prompt.push(description)
+      this.recommendedSchedule = true
+      console.log(this.prompt, 'ISI PROMPT RECOMMENDED')
     },
     handleCheckListPrompt(checklist) {
       this.checklistPrompt = checklist
       console.log(this.checklistPrompt)
-    },
-    // Prompt Recommended
-    handleRecommendedPrompt(description) {
-      this.recommendedPrompt.push(description)
-      console.log(this.recommendedPrompt, 'ISI PROMPT')
-    },
-    handleChoicesPrompt(choices) {
-      this.choicesPrompt = choices
-      console.log(this.choicesPrompt)
+      console.log(this.customSchedule, 'INI CUSTOM')
+      console.log(this.recommendedSchedule, 'INI RECOMMENDED')
     },
     async fetchSchedule() {
       try {
