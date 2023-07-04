@@ -26,7 +26,7 @@
                 </li>
               </ul>
             </div>
-            <RouterLink to="/quesioner">
+            <RouterLink to="/prompt">
               <li>
                 <i class="bx bxs-plus-circle"></i>
                 <span>Add New Schedule</span>
