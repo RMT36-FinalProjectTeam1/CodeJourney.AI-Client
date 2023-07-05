@@ -22,12 +22,7 @@ export default {
   methods: {
     ...mapActions(useCounterStore, ['fetchSchedule']),
     async fetchData() {
-      this.isLoading = true
-      try {
-        await this.fetchSchedule()
-      } finally {
-        this.isLoading = false
-      }
+      await this.fetchSchedule()
     }
   },
   created() {
@@ -39,5 +34,4 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

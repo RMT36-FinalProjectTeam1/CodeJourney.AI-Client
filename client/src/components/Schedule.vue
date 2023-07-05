@@ -40,7 +40,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(useCounterStore, ['deleteSchedule','fetchScheduleById']),
+    ...mapActions(useCounterStore, ['deleteSchedule', 'fetchScheduleById']),
     divSchedule: (Schedule) => {
       const divSche = []
       let currentDate = new Date(Schedule.startDate)
@@ -55,7 +55,10 @@ export default {
       return schedules
     },
     increaseMonth() {
-      if (this.currentMonth[this.selectedSchedule.scheduleTitle] !== this.lengthMonth[this.selectedSchedule.scheduleTitle]) {
+      if (
+        this.currentMonth[this.selectedSchedule.scheduleTitle] !==
+        this.lengthMonth[this.selectedSchedule.scheduleTitle]
+      ) {
         this.currentMonth[this.selectedSchedule.scheduleTitle]++
       }
     },
@@ -101,7 +104,6 @@ export default {
         <div class="name-delete">
           <h1>{{ selectedSchedule.scheduleTitle }}</h1>
           <button @click="handleDelete"><i class="bx bx-x-circle"></i>Delete Schedule</button>
-
         </div>
         <p>Estimated Time: {{ getDuration }}</p>
         <div class="progress-bar">
@@ -115,7 +117,7 @@ export default {
       </div>
       <div class="dashboard-month">
         <i class="bx bx-left-arrow-alt" @click="decreaseMonth"></i>
-        <span>Month 1</span>
+        <span>Month {{ this.currentMonth[this.selectedSchedule.scheduleTitle] + 1 }}</span>
         <i class="bx bx-right-arrow-alt" @click="increaseMonth"></i>
       </div>
       <div class="dashboard-table">
