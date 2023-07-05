@@ -5,8 +5,13 @@
         <h1>All Schedules</h1>
       </div>
       <div class="dashboard-v2-content">
-        <div class="schedule-card" v-for="(schedule, i) in schedules" key="i">
-          <RouterLink class="router-link" :to="`/schedule/${schedule._id}`">
+        <RouterLink
+          v-for="(schedule, i) in schedules"
+          key="i"
+          class="router-link"
+          :to="`/schedule/${schedule._id}`"
+        >
+          <div class="schedule-card">
             <h4>{{ schedule.scheduleTitle }}</h4>
             <span>Estimated Time : {{ getDuration(schedule.schedules) }}</span>
             <hr />
@@ -18,8 +23,8 @@
               </div>
               <progress max="100" :value="getProgress(schedule.schedules)"></progress>
             </div>
-          </RouterLink>
-        </div>
+          </div>
+        </RouterLink>
       </div>
     </div>
   </section>
@@ -52,4 +57,12 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.schedule-card h4,
+.schedule-card span,
+.schedule-card hr,
+.schedule-card p,
+.schedule-card h4 {
+  color: #282634;
+}
+</style>

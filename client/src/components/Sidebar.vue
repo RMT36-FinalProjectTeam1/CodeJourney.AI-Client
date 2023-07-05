@@ -16,14 +16,19 @@
             </li>
             <div class="the-schedule" v-if="schedules">
               <ul>
-                <li v-for="schedule in schedules">
-                  <i class="bx bx-minus"></i>
-                  <span
-                    ><RouterLink class="router-link" :to="`/schedule/${schedule._id}`">{{
-                      schedule.scheduleTitle
-                    }}</RouterLink></span
-                  >
-                </li>
+                <RouterLink
+                  v-for="schedule in schedules"
+                  :key="schedule._id"
+                  class="router-link"
+                  :to="`/schedule/${schedule._id}`"
+                  :class="{ active: selectedSchedule === schedule._id }"
+                  @click="selectSchedule(schedule._id)"
+                >
+                  <li>
+                    <i class="bx bx-minus"></i>
+                    <span>{{ schedule.scheduleTitle }}</span>
+                  </li>
+                </RouterLink>
               </ul>
             </div>
             <RouterLink to="/prompt">
