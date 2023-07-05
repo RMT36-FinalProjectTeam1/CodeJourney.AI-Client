@@ -1,7 +1,8 @@
 <script>
 import DashboardTable from '../components/DashboardTable.vue'
-import { mapState, mapWritableState } from 'pinia'
+import { mapState, mapWritableState, mapActions } from 'pinia'
 import { useCounterStore } from '../stores/counter'
+import Swal from 'sweetalert2'
 export default {
   name: 'Schedule',
   components: {
@@ -37,6 +38,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions(useCounterStore, ['deleteSchedule']),
     divSchedule: (Schedule) => {
       const divSche = []
       let currentDate = new Date(Schedule.startDate)
@@ -59,12 +61,27 @@ export default {
       if (this.currentMonth[this.Schedule.name] !== 0) {
         this.currentMonth[this.Schedule.name]--
       }
+    },
+    handleDelete() {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.deleteSchedule(this.$route.params.id)
+        }
+      })
     }
   },
   watch: {
     '$route.params': {
       handler(newValue) {
-        if(newValue.id){
+        if (newValue.id) {
           this.ScheduleId = this.$route.params.id
           this.Schedule = this.schedules.find((el) => el._id == this.ScheduleId)
           this.ScheduleDiv = this.divSchedule(this.Schedule)
@@ -81,7 +98,7 @@ export default {
       <div class="dashboard-header">
         <div class="name-delete">
           <h1>{{ Schedule.scheduleTitle }}</h1>
-          <button><i class="bx bx-x-circle"></i>Delete Schedule</button>
+          <button @click="handleDelete"><i class="bx bx-x-circle"></i>Delete Schedule</button>
         </div>
         <p>Estimated Time: {{ getDuration }}</p>
         <div class="progress-bar">
