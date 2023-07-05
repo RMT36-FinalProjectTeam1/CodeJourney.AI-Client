@@ -14,19 +14,14 @@
             </li>
             <div class="the-schedule" v-if="schedules">
               <ul>
-                <RouterLink
-                  v-for="schedule in schedules"
-                  :key="schedule._id"
-                  class="router-link"
-                  :to="`/schedule/${schedule._id}`"
-                  :class="{ 'active': selectedSchedule === schedule._id }"
-                  @click="selectSchedule(schedule._id)"
-                >
-                  <li>
-                    <i class="bx bx-minus"></i>
-                    <span>{{ schedule.scheduleTitle }}</span>
-                  </li>
-                </RouterLink>
+                <li v-for="schedule in schedules">
+                  <i class="bx bx-minus"></i>
+                  <span
+                    ><RouterLink class="router-link" :to="`/schedule/${schedule._id}`">{{
+                      schedule.scheduleTitle
+                    }}</RouterLink></span
+                  >
+                </li>
               </ul>
             </div>
             <RouterLink to="/prompt">
@@ -38,7 +33,7 @@
           </ul>
         </div>
         <div class="sidebar-user">
-          <span>Welcome, User 1</span>
+          <span>Welcome, {{ uname }}!</span>
           <ul>
             <li @click="handleLogout">
               <i class="bx bx-log-out"></i>
@@ -59,11 +54,12 @@ export default {
   name: 'Sidebar',
   data() {
     return {
-      selectedSchedule: null
+      uname: ''
     }
   },
   mounted() {
     let schedules = document.querySelector('.sidebar-schedules')
+    this.uname = localStorage.username
     schedules.onclick = () => {
       schedules.classList.toggle('active')
     }
@@ -72,10 +68,7 @@ export default {
     ...mapState(useCounterStore, ['schedules'])
   },
   methods: {
-    ...mapActions(useCounterStore, ['handleLogout']),
-    selectSchedule(scheduleId) {
-      this.selectedSchedule = scheduleId
-    }
+    ...mapActions(useCounterStore, ['handleLogout'])
   }
 }
 </script>
@@ -87,8 +80,5 @@ li {
 .router-link {
   font-weight: 200;
   color: #ffffff;
-}
-.active {
-  color: red;
 }
 </style>
