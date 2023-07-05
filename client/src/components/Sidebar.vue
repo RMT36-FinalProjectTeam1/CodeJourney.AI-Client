@@ -2,7 +2,9 @@
   <section class="sidebar">
     <div class="sidebar-container">
       <div class="sidebar-logo">
-        <img src="../assets/pictures/logo.png" alt="codejourney-logo" />
+        <RouterLink to="/">
+          <img src="../assets/pictures/logo.png" alt="codejourney-logo" />
+        </RouterLink>
       </div>
       <div class="sidebar-menu">
         <div class="sidebar-schedules">

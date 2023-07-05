@@ -4,7 +4,7 @@
       <div class="left-content">
         <img src="../assets/pictures/logo-image.png" alt="logo" />
         <h2>Login to Your Account</h2>
-        <span>The faster you login, the faster we get to work</span>
+        <span>The faster you login, the sooner we can show you what we are capable of</span>
         <form id="login-form" @submit.prevent="submitLogin">
           <label for="login-email">Email</label>
           <input
@@ -26,8 +26,6 @@
           />
           <button type="submit">Login</button>
         </form>
-        <p>Or sign in with</p>
-        <div class="google-box"></div>
         <p>Don't have an account? <RouterLink to="/register">Register here</RouterLink></p>
       </div>
       <div class="right-content">
