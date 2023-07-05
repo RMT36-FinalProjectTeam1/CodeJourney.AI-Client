@@ -16,13 +16,14 @@
       </form>
     </div>
   </section>
-  <PromptChecklist v-if="customSchedule"/>
+  <PromptChecklist v-if="customSchedule" />
 </template>
 
 <script>
-import { mapActions, mapState } from 'pinia';
-import { useCounterStore } from '../stores/counter';
-import PromptChecklist from '../components/PromptChecklist.vue';
+import { mapActions, mapState } from 'pinia'
+import { useCounterStore } from '../stores/counter'
+import PromptChecklist from '../components/PromptChecklist.vue'
+import { onBeforeMount } from 'vue'
 export default {
   name: 'PromptCustomPage',
   components: {
@@ -33,7 +34,7 @@ export default {
   },
   data() {
     return {
-      description: '',
+      description: ''
     }
   },
   methods: {
@@ -41,6 +42,12 @@ export default {
     submitCustomPrompt() {
       this.handleCustomPrompt(this.description)
     }
+  },
+  setup() {
+    const counterStore = useCounterStore()
+    onBeforeMount(() => {
+      counterStore.customSchedule = false
+    })
   }
 }
 </script>

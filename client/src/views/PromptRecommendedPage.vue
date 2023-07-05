@@ -8,7 +8,11 @@
           <i class="bx bxs-down-arrow"></i>
         </div>
         <div class="cards-box">
-          <PromptRecommendedCard />
+          <PromptRecommendedCard
+            v-for="schedule in counterStore.listRecommendedSchedule"
+            :schedule="schedule"
+            :key="schedule._id"
+          />
         </div>
       </div>
     </div>
@@ -21,6 +25,7 @@ import { mapState } from 'pinia'
 import { useCounterStore } from '../stores/counter'
 import PromptRecommendedCard from '../components/PromptRecommendedCard.vue'
 import PromptChecklist from '../components/PromptChecklist.vue'
+import { onBeforeMount } from 'vue'
 export default {
   name: 'PromptRecommendedPage',
   components: {
@@ -30,6 +35,14 @@ export default {
   computed: {
     ...mapState(useCounterStore, ['recommendedSchedule'])
   },
+  setup() {
+    const counterStore = useCounterStore()
+    onBeforeMount(() => {
+      counterStore.recommendedSchedule = false
+      counterStore.fetchRecommendedSchedule()
+    })
+    return { counterStore }
+  }
 }
 </script>
 
