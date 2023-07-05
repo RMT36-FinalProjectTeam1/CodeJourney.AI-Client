@@ -3,13 +3,13 @@
     <div class="detail-container">
       <div class="detail-header">
         <div class="name-status">
-          <h1>Schedule Name</h1>
-          <span>Uncomplete</span>
+          <h1>{{ selectedSchedule.scheduleTitle }}</h1>
+          <span>{{ setStatus(scheduleDetail.complete) }}</span>
         </div>
         <p><span>Task :</span> {{ scheduleDetail.title }}</p>
         <div class="detail-buttons">
           <div>
-            <button>Complete Task</button>
+            <button @click="patchTask(sch_id, task_id)">Complete Task</button>
             <button>Start Quiz</button>
           </div>
           <button @click="backToSch">Go Back</button>
@@ -39,7 +39,7 @@
 
 <script>
 import DetailAccordionData from '../components/DetailAccordionData.vue'
-import { mapActions,mapState } from 'pinia'
+import { mapActions, mapState } from 'pinia'
 import { useCounterStore } from '../stores/counter'
 export default {
   name: 'DetailPage',
@@ -56,14 +56,15 @@ export default {
   created() {
     this.task_id = this.$route.params.ts_id
     this.sch_id = this.$route.params.sc_id
+    this.fetchScheduleDetail(this.sch_id, this.task_id)
   },
-  mounted() {
+    mounted() {
     this.fetchScheduleDetail(this.sch_id, this.task_id).finally(() => {
       this.isLoading = false
     })
   },
   methods: {
-    ...mapActions(useCounterStore, ['fetchScheduleDetail']),
+    ...mapActions(useCounterStore, ['fetchScheduleDetail', 'patchTask']),
     async fetchData(schId, taskId) {
       console.log(this.isLoading)
       this.isLoading = true
@@ -75,10 +76,14 @@ export default {
     },
     backToSch(){
       this.$router.push(`/schedule/${this.sch_id}`)
+    },
+    setStatus(status) {
+      if (status) return 'Completed'
+      else return 'Uncomplete'
     }
   },
-  computed:{
-    ...mapState(useCounterStore,['scheduleDetail'])
+  computed: {
+    ...mapState(useCounterStore, ['scheduleDetail', 'selectedSchedule'])
   }
 }
 </script>
