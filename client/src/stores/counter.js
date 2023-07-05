@@ -7,6 +7,7 @@ export const useCounterStore = defineStore('counter', {
     // Prompt
     customSchedule: false,
     recommendedSchedule: false,
+    listRecommendedSchedule: [],
     prompt: [],
     checklistPrompt: [],
     tempSchedule: {},
@@ -24,7 +25,7 @@ export const useCounterStore = defineStore('counter', {
     // doubleCount: (state) => state.count * 2,
   },
   actions: {
-    async handleLogin(email, password) {
+    async handleLogin(email, password, newUser) {
       try {
         let user = await axios({
           url: this.baseUrl + '/login',
@@ -37,7 +38,7 @@ export const useCounterStore = defineStore('counter', {
           text: 'Login Success',
           type: 'success'
         })
-        this.router.push('/')
+        if (!newUser) this.router.push('/')
       } catch (err) {
         const { msg } = err.response.data
         notify({
@@ -51,12 +52,13 @@ export const useCounterStore = defineStore('counter', {
     async handleRegister(username, email, password) {
       try {
         console.log({ username, email, password })
-        let user = await axios({
+        await axios({
           url: this.baseUrl + '/register',
           method: 'post',
           data: { username, email, password }
         })
-        this.router.push('/login')
+        await this.handleLogin(email, password)
+        this.router.push('/prompt')
       } catch (err) {
         const { msg } = err.response.data
         notify({
@@ -94,11 +96,34 @@ export const useCounterStore = defineStore('counter', {
           text: msg,
           type: 'error'
         })
-        console.log(error)
+        console.log(err)
       }
     },
-    handleRecommendedPrompt(description) {
-      this.prompt.push(description)
+    async fetchRecommendedSchedule() {
+      try {
+        const { data } = await axios({
+          url: this.baseUrl + '/recommended',
+          method: 'get',
+          headers: {
+            access_token: localStorage.getItem('access_token')
+          },
+        })
+        this.listRecommendedSchedule = data
+        console.log(this.listRecommendedSchedule)
+      } catch (err) {
+        const { msg } = err.response.data
+        notify({
+          title: 'Error Prompting',
+          text: msg,
+          type: 'error'
+        })
+        console.log(err)
+      }
+    },
+    handleRecommendedPrompt(id) {
+      const selectedSchedule = this.listRecommendedSchedule.find(el => el._id == id)
+      this.tempSchedule.title = selectedSchedule.title
+      this.tempSchedule.tasks = selectedSchedule.schedules
       this.recommendedSchedule = true
       console.log(this.prompt, 'ISI PROMPT RECOMMENDED')
     },
@@ -169,10 +194,12 @@ export const useCounterStore = defineStore('counter', {
     async deleteSchedule(id) {
       try {
         const schedule = await axios({
-          url: this.baseUrl + `/detail/${id}`,
+          url: this.baseUrl + `/schedules/${id}`,
           method: 'delete',
           headers: { access_token: localStorage.getItem('access_token') }
         })
+        await this.fetchSchedule()
+        this.router.push('/')
       } catch (err) {
         console.log(err)
       }

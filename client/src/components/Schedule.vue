@@ -2,6 +2,7 @@
 import DashboardTable from '../components/DashboardTable.vue'
 import { mapState, mapWritableState, mapActions } from 'pinia'
 import { useCounterStore } from '../stores/counter'
+import Swal from 'sweetalert2'
 export default {
   name: 'Schedule',
   components: {
@@ -39,7 +40,20 @@ export default {
     }
   },
   methods: {
-    ...mapActions(useCounterStore, ['fetchScheduleById']),
+    ...mapActions(useCounterStore, ['deleteSchedule','fetchScheduleById']),
+    divSchedule: (Schedule) => {
+      const divSche = []
+      let currentDate = new Date(Schedule.startDate)
+      const { schedules } = Schedule
+      schedules.forEach((el) => {
+        let day = currentDate.getDay()
+        if (day === 6) currentDate.setDate(currentDate.getDate() + 2)
+        if (day === 0) currentDate.setDate(currentDate.getDate() + 1)
+        el.date = new Date(currentDate)
+        currentDate.setDate(currentDate.getDate() + 1)
+      })
+      return schedules
+    },
     increaseMonth() {
       if (this.currentMonth[this.selectedSchedule.scheduleTitle] !== this.lengthMonth[this.selectedSchedule.scheduleTitle]) {
         this.currentMonth[this.selectedSchedule.scheduleTitle]++
@@ -49,6 +63,21 @@ export default {
       if (this.currentMonth[this.selectedSchedule.scheduleTitle] !== 0) {
         this.currentMonth[this.selectedSchedule.scheduleTitle]--
       }
+    },
+    handleDelete() {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.deleteSchedule(this.$route.params.id)
+        }
+      })
     }
   },
   watch: {
@@ -71,7 +100,8 @@ export default {
       <div class="dashboard-header">
         <div class="name-delete">
           <h1>{{ selectedSchedule.scheduleTitle }}</h1>
-          <button><i class="bx bx-x-circle"></i>Delete Schedule</button>
+          <button @click="handleDelete"><i class="bx bx-x-circle"></i>Delete Schedule</button>
+
         </div>
         <p>Estimated Time: {{ getDuration }}</p>
         <div class="progress-bar">
