@@ -5,7 +5,6 @@
       <div class="recommended-schedule">
         <div class="dropdown-box">
           <h4>Here some popular Javascript schedules you can try</h4>
-          <i class="bx bxs-down-arrow"></i>
         </div>
         <div class="cards-box">
           <PromptRecommendedCard
