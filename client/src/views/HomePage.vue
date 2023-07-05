@@ -1,6 +1,6 @@
 <template>
   <Sidebar />
-  <RouterView v-if="schedules.length"/>
+  <router-view v-if="schedules.length"></router-view>
 </template>
 
 <script>
@@ -21,7 +21,7 @@ export default {
   },
   computed:{
     ...mapState(useCounterStore,['schedules'])
-  }
+  },
 }
 </script>
 
