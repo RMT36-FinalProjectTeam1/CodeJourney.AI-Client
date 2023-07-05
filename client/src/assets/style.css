@@ -37,6 +37,58 @@ body {
   color: var(--white-color);
 }
 
+
+
+/* Loader Xbox Start */
+.loader-xbox {
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+}
+
+.loader-xbox,
+.loader-xbox:before,
+.loader-xbox:after {
+  position: absolute;
+  border: 5px solid transparent;
+  border-top: 5px solid #ff4057;
+  border-radius: 50%;
+  animation: rotate linear infinite;
+  content: '';
+}
+.loader-xbox {
+  height: 100px;
+  width: 100px;
+  animation-duration: 1.05s;
+}
+.loader-xbox:before {
+  height: 75px;
+  width: 75px;
+  top: 10px;
+  left: 10px;
+  animation-duration: 10s;
+}
+.loader-xbox:after {
+  height: 50px;
+  width: 50px;
+  top: 22px;
+  left: 22px;
+  animation-duration: 4s;
+}
+@keyframes rotate {
+  from {
+    transform: rotateZ(360deg);
+  }
+  to {
+    transform: rotateZ(0deg);
+  }
+}
+/* Loader Xbox End */
+
+
+
+
+
 /* Login Section Start */
 .login,
 .register {
@@ -327,7 +379,7 @@ body {
 }
 
 .schedule-model-container {
-  width: 60%;
+  width: 70%;
   height: fit-content;
   display: flex;
   margin-top: 70px;
@@ -427,7 +479,6 @@ body {
   justify-content: space-between;
   border-bottom: 1px solid var(--black-color);
   padding-bottom: 5px;
-  cursor: pointer;
 }
 
 .recommended-schedule .dropdown-box h4 {
@@ -439,20 +490,16 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1.5rem;
-  /* display: none; */
 }
-
-/* .recommended-schedule .cards-box.active {
-  display: grid;
-} */
 
 .recommended-schedule .schedule-card {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 315px;
+  height: 170px;
   align-items: center;
   border-radius: 5px;
-  background: linear-gradient(to right, var(--white-color), #3FB984);
+  background: linear-gradient(to right, var(--white-color) 50%, #3FB984);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   padding: 15px 15px;
   gap: 15px;
@@ -482,10 +529,11 @@ body {
   flex-direction: column;
   align-items: start;
   justify-content: center;
+  
 }
 
 .recommended-schedule .schedule-card .right h4 {
-  font-size: var(--font-size-xxl);
+  font-size: var(--font-size-l);
 }
 
 .recommended-schedule .schedule-card .right span {
@@ -493,6 +541,13 @@ body {
   font-size: var(--font-size-m);
   opacity: 0.7;
   border-bottom: 1px solid var(--black-color);
+}
+
+.recommended-schedule .schedule-card .right  {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .recommended-schedule .schedule-card .right li {

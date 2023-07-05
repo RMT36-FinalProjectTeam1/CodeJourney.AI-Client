@@ -1,5 +1,5 @@
 <template>
-  <section class="advanced-model" v-if="!customSchedule">
+  <section class="advanced-model" v-if="!customSchedule && !isLoading">
     <div class="advanced-model-container">
       <h2>Custom Schedule</h2>
       <hr />
@@ -16,7 +16,8 @@
       </form>
     </div>
   </section>
-  <PromptChecklist v-if="customSchedule" />
+  <PromptChecklist v-if="customSchedule && !isLoading" />
+  <div v-if="isLoading" class="loader-xbox"></div>
 </template>
 
 <script>
@@ -34,13 +35,17 @@ export default {
   },
   data() {
     return {
-      description: ''
+      description: '',
+      isLoading: null
     }
   },
   methods: {
     ...mapActions(useCounterStore, ['handleCustomPrompt']),
     submitCustomPrompt() {
-      this.handleCustomPrompt(this.description)
+      this.isLoading = true
+      this.handleCustomPrompt(this.description).finally(() => {
+        this.isLoading = false
+      })
     }
   },
   setup() {
