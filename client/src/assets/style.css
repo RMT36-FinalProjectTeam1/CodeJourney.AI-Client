@@ -1390,12 +1390,12 @@ td:not(:first-child) {
   font-weight: 500;
   outline: none;
   border-radius: 5px;
-  cursor: pointer;
 }
 
-.quiz-container .answer-choices button:hover {
+.quiz-container .answer-choices button:hover:enabled {
   background: var(--red-color);
   color: var(--white-color);
+  cursor: pointer;
 }
 
 .quiz-container .total-score {

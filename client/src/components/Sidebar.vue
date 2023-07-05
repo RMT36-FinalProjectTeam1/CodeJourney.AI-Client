@@ -22,7 +22,6 @@
                   class="router-link"
                   :to="`/schedule/${schedule._id}`"
                   :class="{ active: selectedSchedule === schedule._id }"
-                  @click="selectSchedule(schedule._id)"
                 >
                   <li>
                     <i class="bx bx-minus"></i>

@@ -1,7 +1,14 @@
 <template>
-  <tr v-for="(week, index) in monthlySchedule[0]">
+  <tr v-for="(week, index) in monthlySchedule[currentMonth[selectedSchedule.scheduleTitle]]">
     <td>
-      <span>week {{ index + 1 }}</span>
+      <span
+        >week
+        {{
+          currentMonth[selectedSchedule.scheduleTitle]
+            ? index + 1
+            : 4 - monthlySchedule[currentMonth[selectedSchedule.scheduleTitle]].length + index + 1
+        }}</span
+      >
     </td>
     <td v-for="day in 5">
       <div

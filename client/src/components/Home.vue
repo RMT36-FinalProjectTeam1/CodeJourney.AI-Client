@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { mapState, mapWritableState } from 'pinia'
+import { mapState, mapWritableState,mapActions } from 'pinia'
 import { useCounterStore } from '../stores/counter'
 export default {
   name: 'Home',
@@ -40,6 +40,7 @@ export default {
     ...mapWritableState(useCounterStore, ['currentMonth'])
   },
   methods: {
+    ...mapActions(useCounterStore,['fetchSchedule']),
     getProgress(tasks) {
       const maxTask = tasks.length
       let completeTask = 0
@@ -53,6 +54,9 @@ export default {
       if (days < 24) return `${days} days`
       else return `${(days - (days % 4)) / 4 + 1} weeks`
     }
+  },
+  created() {
+    this.fetchSchedule
   }
 }
 </script>

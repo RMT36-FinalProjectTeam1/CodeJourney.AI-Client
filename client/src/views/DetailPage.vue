@@ -1,20 +1,26 @@
 <template>
-  <section class="detail" v-if="!isLoading">
+  <section class="detail" v-if="scheduleDetail">
     <div class="detail-container">
       <div class="detail-header">
         <div class="name-status">
           <h1>{{ selectedSchedule.scheduleTitle }}</h1>
           <span
-          :class="{
+            :class="{
               'status-completed': setStatus(scheduleDetail.complete) === 'Completed',
               'status-uncomplete': setStatus(scheduleDetail.complete) === 'Uncomplete'
             }"
-          >{{ setStatus(scheduleDetail.complete) }}</span>
+            >{{ setStatus(scheduleDetail.complete) }}</span
+          >
         </div>
         <p><span>Task :</span> {{ scheduleDetail.title }}</p>
         <div class="detail-buttons">
           <div>
-            <button @click="patchTask(sch_id, task_id)">Complete Task</button>
+            <button
+              v-if="scheduleDetail.complete == false"
+              @click="handlePatchTask(sch_id, task_id)"
+            >
+              Complete Task
+            </button>
             <button @click="startQuiz">Start Quiz</button>
           </div>
           <button @click="backToSch">Go Back</button>
@@ -39,13 +45,14 @@
       </div>
     </div>
   </section>
-  <div v-if="isLoading" class="loader-xbox"></div>
+  <div v-if="!scheduleDetail" class="loader-xbox"></div>
 </template>
 
 <script>
 import DetailAccordionData from '../components/DetailAccordionData.vue'
 import { mapActions, mapState, mapWritableState } from 'pinia'
 import { useCounterStore } from '../stores/counter'
+import Swal from 'sweetalert2'
 export default {
   name: 'DetailPage',
   components: {
@@ -63,15 +70,10 @@ export default {
     this.sch_id = this.$route.params.sc_id
     this.fetchScheduleDetail(this.sch_id, this.task_id)
   },
-    mounted() {
-    this.fetchScheduleDetail(this.sch_id, this.task_id).finally(() => {
-      this.isLoading = false
-    })
-  },
   methods: {
     ...mapActions(useCounterStore, ['fetchScheduleDetail', 'patchTask']),
     async fetchData(schId, taskId) {
-      console.log(this.isLoading)
+      // console.log(this.isLoading)
       this.isLoading = true
       try {
         await this.fetchScheduleDetail(schId, taskId)
@@ -79,21 +81,35 @@ export default {
         this.isLoading = false
       }
     },
-    backToSch(){
+    handlePatchTask(sch_id, task_id) {
+      Swal.fire({
+        title: 'Are you sure complete this schedule?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.patchTask(sch_id, task_id)
+        }
+      })
+    },
+    backToSch() {
       this.$router.push(`/schedule/${this.sch_id}`)
     },
     setStatus(status) {
       if (status) return 'Completed'
       else return 'Uncomplete'
     },
-    startQuiz(){
+    startQuiz() {
       this.currentQuizNumber = 0
       this.$router.push(`/quiz/${this.sch_id}/${this.task_id}`)
     }
   },
   computed: {
     ...mapState(useCounterStore, ['scheduleDetail', 'selectedSchedule']),
-    ...mapWritableState(useCounterStore,'currentQuizNumber')
+    ...mapWritableState(useCounterStore, 'currentQuizNumber')
   }
 }
 </script>

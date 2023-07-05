@@ -13,15 +13,13 @@ export const useCounterStore = defineStore('counter', {
     tempSchedule: {},
     // Schedule
     schedules: [],
-    scheduleDetail: [],
+    scheduleDetail: undefined,
     isFailLoadData: false,
     currentMonth: {},
     lengthMonth: {},
     selectedSchedule: {},
     convertedSchedule: [],
     monthlySchedule: [],
-    currentQuizNumber: 0,
-    quizAnswers: {}
   }),
   getters: {
     // doubleCount: (state) => state.count * 2,
@@ -53,7 +51,7 @@ export const useCounterStore = defineStore('counter', {
     },
     async handleRegister(username, email, password) {
       try {
-        console.log({ username, email, password })
+        
         await axios({
           url: this.baseUrl + '/register',
           method: 'post',
@@ -111,7 +109,7 @@ export const useCounterStore = defineStore('counter', {
           }
         })
         this.listRecommendedSchedule = data
-        console.log(this.listRecommendedSchedule)
+        // console.log(this.listRecommendedSchedule)
       } catch (err) {
         const { msg } = err.response.data
         notify({
@@ -127,7 +125,7 @@ export const useCounterStore = defineStore('counter', {
       this.tempSchedule.title = selectedSchedule.title
       this.tempSchedule.tasks = selectedSchedule.schedules
       this.recommendedSchedule = true
-      console.log(this.prompt, 'ISI PROMPT RECOMMENDED')
+      // console.log(this.prompt, 'ISI PROMPT RECOMMENDED')
     },
     async postSchedule(schedule) {
       console.log(schedule)
@@ -171,7 +169,7 @@ export const useCounterStore = defineStore('counter', {
           this.currentMonth[el.name] = 0
           this.lengthMonth[el.name] = 0
         })
-        console.log(schedules)
+        // console.log(schedules)
       } catch (err) {
         this.isFailLoadData = true
         console.log(err)
@@ -179,6 +177,8 @@ export const useCounterStore = defineStore('counter', {
     },
     async fetchScheduleDetail(sc_id, ts_id) {
       try {
+        // console.log("fetch data")
+        this.scheduleDetail = undefined
         let { data: details } = await axios({
           url: this.baseUrl + `/schedules/${sc_id}/${ts_id}`,
           method: 'get',
@@ -188,13 +188,7 @@ export const useCounterStore = defineStore('counter', {
         })
         this.isFailLoadData = false
         this.scheduleDetail = details
-        this.quizAnswers = {}
-        details.quiz.forEach((el) => {
-          this.quizAnswers[el._id] = {
-            answer: el.answer,
-            user_answer: ''
-          }
-        })
+        // console.log(this.scheduleDetail)
       } catch (err) {
         this.isFailLoadData = true
         console.log(err)
@@ -225,6 +219,8 @@ export const useCounterStore = defineStore('counter', {
         this.selectedSchedule = schedule
         this.convertedSchedule = this.convertSchedule(schedule)
         this.monthlySchedule = this.formatSchedule(this.convertedSchedule)
+        this.currentMonth[this.selectedSchedule.scheduleTitle] = 0
+        this.lengthMonth[this.selectedSchedule.scheduleTitle] = this.monthlySchedule.length - 1
       } catch (error) {
         console.log(error)
       }
