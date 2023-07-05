@@ -14,12 +14,19 @@
             </li>
             <div class="the-schedule" v-if="schedules">
               <ul>
-                <li v-for="schedule in schedules">
-                  <i class="bx bx-minus"></i>
-                  <span
-                    ><RouterLink class="router-link" :to="`/schedule/${schedule._id}`">{{ schedule.scheduleTitle }}</RouterLink></span
-                  >
-                </li>
+                <RouterLink
+                  v-for="schedule in schedules"
+                  :key="schedule._id"
+                  class="router-link"
+                  :to="`/schedule/${schedule._id}`"
+                  :class="{ 'active': selectedSchedule === schedule._id }"
+                  @click="selectSchedule(schedule._id)"
+                >
+                  <li>
+                    <i class="bx bx-minus"></i>
+                    <span>{{ schedule.scheduleTitle }}</span>
+                  </li>
+                </RouterLink>
               </ul>
             </div>
             <RouterLink to="/prompt">
@@ -46,10 +53,15 @@
 
 <script>
 import { RouterLink } from 'vue-router'
-import { mapState,mapActions } from 'pinia'
+import { mapState, mapActions } from 'pinia'
 import { useCounterStore } from '../stores/counter'
 export default {
   name: 'Sidebar',
+  data() {
+    return {
+      selectedSchedule: null
+    }
+  },
   mounted() {
     let schedules = document.querySelector('.sidebar-schedules')
     schedules.onclick = () => {
@@ -59,8 +71,11 @@ export default {
   computed: {
     ...mapState(useCounterStore, ['schedules'])
   },
-  methods:{
-    ...mapActions(useCounterStore,['handleLogout'])
+  methods: {
+    ...mapActions(useCounterStore, ['handleLogout']),
+    selectSchedule(scheduleId) {
+      this.selectedSchedule = scheduleId
+    }
   }
 }
 </script>
@@ -69,8 +84,11 @@ export default {
 li {
   color: #ffffff;
 }
-.router-link{
+.router-link {
   font-weight: 200;
-  color:#ffffff;
+  color: #ffffff;
+}
+.active {
+  color: red;
 }
 </style>
