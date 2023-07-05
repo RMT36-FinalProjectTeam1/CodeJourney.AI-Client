@@ -13,7 +13,13 @@
           <img :src="setLogo(week[indexFinder(day, week)].task)" alt="" />
         </div>
         <div class="content">
-          <span>{{ setStatus(week[indexFinder(day, week)].complete) }}</span>
+          <span
+            :class="{
+              'status-completed': setStatus(week[indexFinder(day, week)].complete) === 'Completed',
+              'status-uncomplete': setStatus(week[indexFinder(day, week)].complete) === 'Uncomplete'
+            }"
+            >{{ setStatus(week[indexFinder(day, week)].complete) }}</span
+          >
           <p>{{ week[indexFinder(day, week)].task }}</p>
         </div>
       </div>
@@ -66,4 +72,12 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.status-completed {
+  background: rgb(30, 238, 30) !important;
+}
+
+.status-uncomplete {
+  background: red !important;
+}
+</style>

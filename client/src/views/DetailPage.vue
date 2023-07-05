@@ -4,7 +4,12 @@
       <div class="detail-header">
         <div class="name-status">
           <h1>{{ selectedSchedule.scheduleTitle }}</h1>
-          <span>{{ setStatus(scheduleDetail.complete) }}</span>
+          <span
+          :class="{
+              'status-completed': setStatus(scheduleDetail.complete) === 'Completed',
+              'status-uncomplete': setStatus(scheduleDetail.complete) === 'Uncomplete'
+            }"
+          >{{ setStatus(scheduleDetail.complete) }}</span>
         </div>
         <p><span>Task :</span> {{ scheduleDetail.title }}</p>
         <div class="detail-buttons">
@@ -89,4 +94,11 @@ export default {
 </script>
 
 <style scoped>
+.status-completed {
+  background: rgb(30, 238, 30) !important;
+}
+
+.status-uncomplete {
+  background: red !important;
+}
 </style>
