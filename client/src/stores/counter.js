@@ -21,7 +21,7 @@ export const useCounterStore = defineStore('counter', {
     // doubleCount: (state) => state.count * 2,
   },
   actions: {
-    async handleLogin(email, password) {
+    async handleLogin(email, password, newUser) {
       try {
         let user = await axios({
           url: this.baseUrl + '/login',
@@ -34,7 +34,7 @@ export const useCounterStore = defineStore('counter', {
           text: 'Login Success',
           type: 'success'
         })
-        this.router.push('/')
+        if (!newUser) this.router.push('/')
       } catch (err) {
         const { msg } = err.response.data
         notify({
@@ -48,12 +48,13 @@ export const useCounterStore = defineStore('counter', {
     async handleRegister(username, email, password) {
       try {
         console.log({ username, email, password })
-        let user = await axios({
+        await axios({
           url: this.baseUrl + '/register',
           method: 'post',
           data: { username, email, password }
         })
-        this.router.push('/login')
+        await this.handleLogin(email, password)
+        this.router.push('/prompt')
       } catch (err) {
         const { msg } = err.response.data
         notify({
