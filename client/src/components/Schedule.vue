@@ -2,9 +2,6 @@
 import DashboardTable from '../components/DashboardTable.vue'
 import { mapState, mapWritableState } from 'pinia'
 import { useCounterStore } from '../stores/counter'
-import { useRoute } from 'vue-router'
-import { watch } from 'vue'
-import { ref } from 'vue'
 export default {
   name: 'Schedule',
   components: {
@@ -32,7 +29,7 @@ export default {
     },
     getProgress() {
       const maxTask = this.ScheduleDiv.length
-      const completeTask = 0
+      let completeTask = 0
       this.ScheduleDiv.forEach((el) => {
         if (el.complete) completeTask++
       })
@@ -66,10 +63,12 @@ export default {
   },
   watch: {
     '$route.params': {
-      handler() {
-        this.ScheduleId = this.$route.params.id
-        this.Schedule = this.schedules.find((el) => el._id == this.ScheduleId)
-        this.ScheduleDiv = this.divSchedule(this.Schedule)
+      handler(newValue) {
+        if(newValue.id){
+          this.ScheduleId = this.$route.params.id
+          this.Schedule = this.schedules.find((el) => el._id == this.ScheduleId)
+          this.ScheduleDiv = this.divSchedule(this.Schedule)
+        }
       },
       deep: true
     }

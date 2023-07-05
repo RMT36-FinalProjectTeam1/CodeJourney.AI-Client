@@ -1,6 +1,6 @@
 <template>
   <Sidebar />
-  <router-view v-if="schedules.length"></router-view>
+  <RouterView></RouterView>
 </template>
 
 <script>
