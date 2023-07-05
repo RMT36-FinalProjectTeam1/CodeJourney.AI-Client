@@ -1,7 +1,7 @@
 <template>
-  <li v-for="ref in linkRefs">
-    <input type="radio" />
-    <label>{{ ref.ref }}</label>
+  <li v-for="(ref, index) in linkRefs">
+    <input type="radio" :name="'accordion'" :id="'accordion-' + index" />
+    <label :for="'accordion-' + index">{{ ref.ref }}</label>
     <div class="content">
       <div class="references-link">
         <a
