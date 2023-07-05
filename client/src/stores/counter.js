@@ -200,6 +200,6 @@ export const useCounterStore = defineStore('counter', {
       } catch (err) {
         console.log(err)
       }
-    },
+    }
   }
 })

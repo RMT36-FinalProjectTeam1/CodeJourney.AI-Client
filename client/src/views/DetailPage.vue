@@ -1,5 +1,5 @@
 <template>
-  <section class="detail">
+  <section class="detail" v-if="!isLoading">
     <div class="detail-container">
       <div class="detail-header">
         <div class="name-status">
@@ -34,6 +34,7 @@
       </div>
     </div>
   </section>
+  <div v-if="isLoading" class="loader-xbox"></div>
 </template>
 
 <script>
@@ -49,16 +50,29 @@ export default {
     return {
       task_id: '',
       sch_id: '',
+      isLoading: true
     }
   },
   created() {
     this.task_id = this.$route.params.ts_id
     this.sch_id = this.$route.params.sc_id
-    this.fetchScheduleDetail(this.sch_id, this.task_id)
-    
+  },
+  mounted() {
+    this.fetchScheduleDetail(this.sch_id, this.task_id).finally(() => {
+      this.isLoading = false
+    })
   },
   methods: {
     ...mapActions(useCounterStore, ['fetchScheduleDetail']),
+    async fetchData(schId, taskId) {
+      console.log(this.isLoading)
+      this.isLoading = true
+      try {
+        await this.fetchScheduleDetail(schId, taskId)
+      } finally {
+        this.isLoading = false
+      }
+    },
     backToSch(){
       this.$router.push(`/schedule/${this.sch_id}`)
     }
@@ -69,4 +83,48 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.loader-xbox {
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+}
+
+.loader-xbox,
+.loader-xbox:before,
+.loader-xbox:after {
+  position: absolute;
+  border: 3px solid transparent;
+  border-top: 3px solid #ff4057;
+  border-radius: 50%;
+  animation: rotate linear infinite;
+  content: '';
+}
+.loader-xbox {
+  height: 100px;
+  width: 100px;
+  animation-duration: 1.05s;
+}
+.loader-xbox:before {
+  height: 75px;
+  width: 75px;
+  top: 10px;
+  left: 10px;
+  animation-duration: 10s;
+}
+.loader-xbox:after {
+  height: 50px;
+  width: 50px;
+  top: 22px;
+  left: 22px;
+  animation-duration: 4s;
+}
+@keyframes rotate {
+  from {
+    transform: rotateZ(360deg);
+  }
+  to {
+    transform: rotateZ(0deg);
+  }
+}
+</style>
