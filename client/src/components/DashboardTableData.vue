@@ -1,5 +1,5 @@
 <template>
-  <tr v-for="(week, index) in Monthly_Schedule[currentMonth[scName]]">
+  <tr v-for="(week, index) in monthlySchedule[0]">
     <td>
       <span>week {{ index + 1 }}</span>
     </td>
@@ -29,7 +29,6 @@ import logos from '../techlogo.json'
 
 export default {
   name: 'DashboardTableData',
-  props: ['schedule', 'scName', 'scId'],
   data() {
     return {
       Monthly_Schedule: [],
@@ -37,7 +36,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(useCounterStore, ['currentMonth']),
+    ...mapState(useCounterStore, ['currentMonth', 'monthlySchedule', 'selectedSchedule']),
     ...mapWritableState(useCounterStore, ['lengthMonth'])
   },
   methods: {
@@ -61,37 +60,7 @@ export default {
       else return 'Uncomplete'
     },
     goToDetails(id) {
-      this.$router.push(`/detail/${this.scId}/${id}`)
-    },
-    formatSchedule() {
-      this.Monthly_Schedule = []
-      let month = this.schedule[0].date.getMonth()
-      let monthTemp = []
-      let weekTemp = []
-      this.schedule.forEach((el) => {
-        if (el.date.getMonth() !== month) {
-          this.Monthly_Schedule.push(monthTemp)
-          month = el.date.getMonth()
-          monthTemp = []
-        }
-        if (el.date.getDay() === 1 && weekTemp !== []) {
-          monthTemp.push(weekTemp)
-          weekTemp = []
-        }
-        weekTemp.push(el)
-      })
-      monthTemp.push(weekTemp)
-      this.Monthly_Schedule.push(monthTemp)
-      this.lengthMonth[this.scName] = this.Monthly_Schedule.length - 1
-    }
-  },
-  created() {
-    this.formatSchedule()
-  },
-  watch:{
-    schedule(){
-      this.formatSchedule()
-      console.log(this.Monthly_Schedule);
+      this.$router.push(`/detail/${this.selectedSchedule._id}/${id}`)
     }
   }
 }

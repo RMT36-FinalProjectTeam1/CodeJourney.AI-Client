@@ -15,7 +15,10 @@ export const useCounterStore = defineStore('counter', {
     scheduleDetail: [],
     isFailLoadData: false,
     currentMonth: {},
-    lengthMonth: {}
+    lengthMonth: {},
+    selectedSchedule: {},
+    convertedSchedule: [],
+    monthlySchedule: []
   }),
   getters: {
     // doubleCount: (state) => state.count * 2,
@@ -174,5 +177,73 @@ export const useCounterStore = defineStore('counter', {
         console.log(err)
       }
     },
+    async fetchScheduleById(id) {
+      try {
+        const { data: schedule } = await axios({
+          url: this.baseUrl + '/schedules/' + id,
+          method: 'get',
+          headers: {
+            access_token: localStorage.getItem('access_token')
+          }
+        })
+        this.selectedSchedule = schedule
+        this.convertedSchedule = this.convertSchedule(schedule)
+        this.monthlySchedule = this.formatSchedule(this.convertedSchedule)
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    convertSchedule(Schedule) {
+      let currentDate = new Date(Schedule.startDate)
+      const { schedules } = Schedule
+      schedules.forEach((el) => {
+        let day = currentDate.getDay()
+        if (day === 6) currentDate.setDate(currentDate.getDate() + 2)
+        if (day === 0) currentDate.setDate(currentDate.getDate() + 1)
+        el.date = new Date(currentDate)
+        currentDate.setDate(currentDate.getDate() + 1)
+      })
+      return schedules
+    },
+    formatSchedule(cvtSc) {
+      console.log(cvtSc)
+      let Monthly_Schedule = []
+      let month = cvtSc[0].date.getMonth()
+      let monthTemp = []
+      let weekTemp = []
+      cvtSc.forEach((el) => {
+        if (el.date.getMonth() !== month) {
+          Monthly_Schedule.push(monthTemp)
+          month = el.date.getMonth()
+          monthTemp = []
+        }
+        if (el.date.getDay() === 1 && weekTemp !== []) {
+          monthTemp.push(weekTemp)
+          weekTemp = []
+        }
+        weekTemp.push(el)
+      })
+      monthTemp.push(weekTemp)
+      Monthly_Schedule.push(monthTemp)
+      return Monthly_Schedule
+    },
+    async patchTask(sch_id, tsk_id) {
+      try {
+        const { data } = await axios({
+          url: this.baseUrl + '/schedules/' + sch_id,
+          method: 'patch',
+          headers: {
+            access_token: localStorage.getItem('access_token')
+          },
+          data: {
+            taskId: tsk_id
+          }
+        })
+        console.log(data)
+        this.router.push(`/schedule/${sch_id}`)
+      } catch (error) {
+        console.log(error)
+      }
+    }
   }
 })
