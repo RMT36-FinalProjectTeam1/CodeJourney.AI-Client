@@ -191,10 +191,12 @@ export const useCounterStore = defineStore('counter', {
     async deleteSchedule(id) {
       try {
         const schedule = await axios({
-          url: this.baseUrl + `/detail/${id}`,
+          url: this.baseUrl + `/schedules/${id}`,
           method: 'delete',
           headers: { access_token: localStorage.getItem('access_token') }
         })
+        await this.fetchSchedule()
+        this.router.push('/')
       } catch (err) {
         console.log(err)
       }
