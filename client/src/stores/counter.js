@@ -9,7 +9,7 @@ export const useCounterStore = defineStore('counter', {
     recommendedSchedule: false,
     prompt: [],
     checklistPrompt: [],
-    tempSchedule:{},
+    tempSchedule: {},
     // Schedule
     schedules: [],
     scheduleDetail: [],
@@ -100,15 +100,15 @@ export const useCounterStore = defineStore('counter', {
       console.log(this.prompt, 'ISI PROMPT RECOMMENDED')
     },
     async postSchedule(schedule) {
-      console.log(schedule);
+      console.log(schedule)
       try {
-        const {data} = await axios({
-          url:this.baseUrl+'/schedules',
-          method:'POST',
-          headers:{
-            access_token:localStorage.getItem('access_token')
+        const { data } = await axios({
+          url: this.baseUrl + '/schedules',
+          method: 'POST',
+          headers: {
+            access_token: localStorage.getItem('access_token')
           },
-          data:schedule
+          data: schedule
         })
         notify({
           title: 'Success',
@@ -123,7 +123,7 @@ export const useCounterStore = defineStore('counter', {
           text: msg,
           type: 'error'
         })
-        console.log(error);
+        console.log(error)
       }
     },
     async fetchSchedule() {
@@ -131,8 +131,8 @@ export const useCounterStore = defineStore('counter', {
         let { data: schedules } = await axios({
           url: this.baseUrl + '/schedules',
           method: 'get',
-          headers:{
-            access_token:localStorage.getItem('access_token')
+          headers: {
+            access_token: localStorage.getItem('access_token')
           }
         })
         this.isFailLoadData = false
@@ -141,20 +141,23 @@ export const useCounterStore = defineStore('counter', {
           this.currentMonth[el.name] = 0
           this.lengthMonth[el.name] = 0
         })
-        console.log(schedules);
+        console.log(schedules)
       } catch (err) {
         this.isFailLoadData = true
         console.log(err)
       }
     },
-    async fetchScheduleDetail(id) {
+    async fetchScheduleDetail(sc_id, ts_id) {
       try {
-        let detail = await axios({
-          url: this.baseUrl + `/detail/${id}`,
-          method: 'get'
+        let { data: details } = await axios({
+          url: this.baseUrl + `/schedules/${sc_id}/${ts_id}`,
+          method: 'get',
+          headers: {
+            access_token: localStorage.getItem('access_token')
+          }
         })
         this.isFailLoadData = false
-        this.scheduleDetail = detail.data
+        this.scheduleDetail = details
       } catch (err) {
         this.isFailLoadData = true
         console.log(err)

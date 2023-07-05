@@ -35,9 +35,14 @@ const router = createRouter({
           component:Home
         },
         {
-          path : '/schedule/:id',
+          path : 'schedule/:id',
           name : 'SchedulePage',
           component:Schedule
+        },
+        {
+          path: 'detail/:sc_id/:ts_id',
+          name: 'detail',
+          component: DetailPage
         }
       ]
     },
@@ -55,11 +60,6 @@ const router = createRouter({
       path: '/prompt/recommended',
       name: 'promptRecommended',
       component: PromptRecommendedPage
-    },
-    {
-      path: '/detail/:id',
-      name: 'detail',
-      component: DetailPage
     },
     {
       path: '/quiz/:id',

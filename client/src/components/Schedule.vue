@@ -1,7 +1,10 @@
 <script>
 import DashboardTable from '../components/DashboardTable.vue'
-import { mapState,mapWritableState } from 'pinia'
+import { mapState, mapWritableState } from 'pinia'
 import { useCounterStore } from '../stores/counter'
+import { useRoute } from 'vue-router'
+import { watch } from 'vue'
+import { ref } from 'vue'
 export default {
   name: 'Schedule',
   components: {
@@ -11,7 +14,7 @@ export default {
     return {
       ScheduleId: 0,
       Schedule: {},
-      ScheduleDiv: [],
+      ScheduleDiv: []
     }
   },
   created() {
@@ -20,20 +23,20 @@ export default {
     this.ScheduleDiv = this.divSchedule(this.Schedule)
   },
   computed: {
-    ...mapState(useCounterStore, ['schedules','lengthMonth']),
-    ...mapWritableState(useCounterStore,['currentMonth']),
-    getDuration(){
+    ...mapState(useCounterStore, ['schedules', 'lengthMonth']),
+    ...mapWritableState(useCounterStore, ['currentMonth']),
+    getDuration() {
       const days = this.ScheduleDiv.length
-      if(days < 24) return `${days} days`
-      else return `${(days-(days%4))/4 + 1} weeks`
+      if (days < 24) return `${days} days`
+      else return `${(days - (days % 4)) / 4 + 1} weeks`
     },
-    getProgress(){
+    getProgress() {
       const maxTask = this.ScheduleDiv.length
       const completeTask = 0
-      this.ScheduleDiv.forEach(el =>{
-        if(el.complete) completeTask++
+      this.ScheduleDiv.forEach((el) => {
+        if (el.complete) completeTask++
       })
-      return Math.ceil(completeTask/maxTask*100)
+      return Math.ceil((completeTask / maxTask) * 100)
     }
   },
   methods: {
@@ -60,6 +63,16 @@ export default {
         this.currentMonth[this.Schedule.name]--
       }
     }
+  },
+  watch: {
+    '$route.params': {
+      handler() {
+        this.ScheduleId = this.$route.params.id
+        this.Schedule = this.schedules.find((el) => el._id == this.ScheduleId)
+        this.ScheduleDiv = this.divSchedule(this.Schedule)
+      },
+      deep: true
+    }
   }
 }
 </script>
@@ -75,7 +88,7 @@ export default {
         <div class="progress-bar">
           <div class="percentage">
             <p>Goals Reached</p>
-            <p>{{getProgress}}%</p>
+            <p>{{ getProgress }}%</p>
           </div>
           <progress max="100" :value="getProgress"></progress>
         </div>
@@ -87,7 +100,7 @@ export default {
         <i class="bx bx-right-arrow-alt" @click="increaseMonth"></i>
       </div>
       <div class="dashboard-table">
-        <DashboardTable :schedule="ScheduleDiv" :scName="Schedule.name"/>
+        <DashboardTable :schedule="ScheduleDiv" :scName="Schedule.name" :scId="ScheduleId" />
       </div>
     </div>
   </section>
