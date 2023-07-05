@@ -43,6 +43,11 @@ const router = createRouter({
           path: 'detail/:sc_id/:ts_id',
           name: 'detail',
           component: DetailPage
+        },
+        {
+          path: '/quiz/:sc_id/:ts_id',
+          name: 'quiz',
+          component: QuizPage
         }
       ]
     },
@@ -60,11 +65,6 @@ const router = createRouter({
       path: '/prompt/recommended',
       name: 'promptRecommended',
       component: PromptRecommendedPage
-    },
-    {
-      path: '/quiz/:id',
-      name: 'quiz',
-      component: QuizPage
     },
   ]
 })

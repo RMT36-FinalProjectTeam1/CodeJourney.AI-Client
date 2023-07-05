@@ -19,7 +19,9 @@ export const useCounterStore = defineStore('counter', {
     lengthMonth: {},
     selectedSchedule: {},
     convertedSchedule: [],
-    monthlySchedule: []
+    monthlySchedule: [],
+    currentQuizNumber: 0,
+    quizAnswers: {}
   }),
   getters: {
     // doubleCount: (state) => state.count * 2,
@@ -106,7 +108,7 @@ export const useCounterStore = defineStore('counter', {
           method: 'get',
           headers: {
             access_token: localStorage.getItem('access_token')
-          },
+          }
         })
         this.listRecommendedSchedule = data
         console.log(this.listRecommendedSchedule)
@@ -121,7 +123,7 @@ export const useCounterStore = defineStore('counter', {
       }
     },
     handleRecommendedPrompt(id) {
-      const selectedSchedule = this.listRecommendedSchedule.find(el => el._id == id)
+      const selectedSchedule = this.listRecommendedSchedule.find((el) => el._id == id)
       this.tempSchedule.title = selectedSchedule.title
       this.tempSchedule.tasks = selectedSchedule.schedules
       this.recommendedSchedule = true
@@ -186,6 +188,13 @@ export const useCounterStore = defineStore('counter', {
         })
         this.isFailLoadData = false
         this.scheduleDetail = details
+        this.quizAnswers = {}
+        details.quiz.forEach((el) => {
+          this.quizAnswers[el._id] = {
+            answer: el.answer,
+            user_answer: ''
+          }
+        })
       } catch (err) {
         this.isFailLoadData = true
         console.log(err)

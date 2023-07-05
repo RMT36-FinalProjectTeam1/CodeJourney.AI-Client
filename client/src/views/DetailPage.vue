@@ -10,7 +10,7 @@
         <div class="detail-buttons">
           <div>
             <button @click="patchTask(sch_id, task_id)">Complete Task</button>
-            <button>Start Quiz</button>
+            <button @click="startQuiz">Start Quiz</button>
           </div>
           <button @click="backToSch">Go Back</button>
         </div>
@@ -39,7 +39,7 @@
 
 <script>
 import DetailAccordionData from '../components/DetailAccordionData.vue'
-import { mapActions, mapState } from 'pinia'
+import { mapActions, mapState, mapWritableState } from 'pinia'
 import { useCounterStore } from '../stores/counter'
 export default {
   name: 'DetailPage',
@@ -80,10 +80,15 @@ export default {
     setStatus(status) {
       if (status) return 'Completed'
       else return 'Uncomplete'
+    },
+    startQuiz(){
+      this.currentQuizNumber = 0
+      this.$router.push(`/quiz/${this.sch_id}/${this.task_id}`)
     }
   },
   computed: {
-    ...mapState(useCounterStore, ['scheduleDetail', 'selectedSchedule'])
+    ...mapState(useCounterStore, ['scheduleDetail', 'selectedSchedule']),
+    ...mapWritableState(useCounterStore,'currentQuizNumber')
   }
 }
 </script>
