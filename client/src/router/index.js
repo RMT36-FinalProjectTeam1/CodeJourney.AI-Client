@@ -1,10 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import LoginPage from '../views/LoginPage.vue'
 import RegisterPage from '../views/RegisterPage.vue'
-import QuesionerPage from '../views/QuesionerPage.vue'
 import HomePage from '../views/HomePage.vue'
+import PromptPage from '../views/PromptPage.vue'
+import PromptCustomPage from '../views/PromptCustomPage.vue'
+import PromptRecommendedPage from '../views/PromptRecommendedPage.vue'
 import DetailPage from '../views/DetailPage.vue'
 import QuizPage from '../views/QuizPage.vue'
+import Home from '../components/Home.vue'
+import Schedule from '../components/Schedule.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -20,24 +25,46 @@ const router = createRouter({
       component: RegisterPage
     },
     {
-      path: '/quesioner',
-      name: 'quesioner',
-      component: QuesionerPage
-    },
-    {
       path: '/',
       name: 'home',
-      component: HomePage
+      component: HomePage,
+      children:[
+        {
+          path : '/',
+          name : 'Homepagehome',
+          component:Home
+        },
+        {
+          path : 'schedule/:id',
+          name : 'SchedulePage',
+          component:Schedule
+        },
+        {
+          path: 'detail/:sc_id/:ts_id',
+          name: 'detail',
+          component: DetailPage
+        },
+        {
+          path: '/quiz/:sc_id/:ts_id',
+          name: 'quiz',
+          component: QuizPage
+        }
+      ]
     },
     {
-      path: '/detail/:id',
-      name: 'detail',
-      component: DetailPage
+      path: '/prompt',
+      name: 'prompt',
+      component: PromptPage
     },
     {
-      path: '/quiz/:id',
-      name: 'quiz',
-      component: QuizPage
+      path: '/prompt/custom',
+      name: 'promptCustom',
+      component: PromptCustomPage
+    },
+    {
+      path: '/prompt/recommended',
+      name: 'promptRecommended',
+      component: PromptRecommendedPage
     },
   ]
 })
@@ -47,6 +74,7 @@ router.beforeEach((to, from, next) => {
   if (!isAuthenticated && to.name == 'home') next('/login')
   if (!isAuthenticated && to.name == 'detail') next('/login')
   if (!isAuthenticated && to.name == 'quiz') next('/login')
+  if (!isAuthenticated && to.name == 'Homepagehome') next('/login')
 
   if (isAuthenticated && to.name == 'login') next('/')
   if (isAuthenticated && to.name == 'register') next('/')

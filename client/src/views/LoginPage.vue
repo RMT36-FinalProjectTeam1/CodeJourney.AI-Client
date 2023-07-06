@@ -4,7 +4,7 @@
       <div class="left-content">
         <img src="../assets/pictures/logo-image.png" alt="logo" />
         <h2>Login to Your Account</h2>
-        <span>The faster you login, the faster we get to work</span>
+        <span>The faster you login, the sooner we can show you what we are capable of</span>
         <form id="login-form" @submit.prevent="submitLogin">
           <label for="login-email">Email</label>
           <input
@@ -26,9 +26,7 @@
           />
           <button type="submit">Login</button>
         </form>
-        <p>Or sign in with</p>
-        <div class="google-box"></div>
-        <p>Don't have an account? <a href="#">Register here</a></p>
+        <p>Don't have an account? <RouterLink to="/register">Register here</RouterLink></p>
       </div>
       <div class="right-content">
         <img src="../assets/pictures/login-image.jpg" alt="" />
@@ -40,7 +38,7 @@
 <script>
 import { mapActions } from 'pinia';
 import { useCounterStore } from '../stores/counter';
-
+import { RouterLink } from 'vue-router';
 export default {
   name: 'LoginPage',
   data() {
@@ -53,9 +51,6 @@ export default {
     ...mapActions(useCounterStore, ['handleLogin']),
     submitLogin() {
       this.handleLogin(this.email, this.password)
-    },
-    goToRegisterForm() {
-      this.$router.push('/register')
     }
   }
 }

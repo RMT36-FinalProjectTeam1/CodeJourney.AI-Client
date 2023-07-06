@@ -11,7 +11,7 @@
       </tr>
     </thead>
     <tbody>
-      <DashboardTableData />
+      <DashboardTableData/>
     </tbody>
   </table>
 </template>
