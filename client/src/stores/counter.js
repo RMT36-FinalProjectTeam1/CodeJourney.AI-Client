@@ -210,6 +210,7 @@ export const useCounterStore = defineStore('counter', {
     },
     async fetchScheduleById(id) {
       try {
+        this.selectedSchedule = undefined
         const { data: schedule } = await axios({
           url: this.baseUrl + '/schedules/' + id,
           method: 'get',
