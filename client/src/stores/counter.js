@@ -33,6 +33,7 @@ export const useCounterStore = defineStore('counter', {
           data: { email, password }
         })
         localStorage.setItem('access_token', user.data.access_token)
+        localStorage.setItem('username', user.data.username)
         notify({
           title: 'Success',
           text: 'Login Success',
@@ -188,7 +189,6 @@ export const useCounterStore = defineStore('counter', {
         })
         this.isFailLoadData = false
         this.scheduleDetail = details
-        // console.log(this.scheduleDetail)
       } catch (err) {
         this.isFailLoadData = true
         console.log(err)
