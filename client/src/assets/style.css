@@ -107,6 +107,9 @@ body {
   display: flex;
   flex-direction: row;
 }
+.login-container {
+  height: 72% !important;
+}
 
 .login-container .left-content,
 .register-container .left-content {

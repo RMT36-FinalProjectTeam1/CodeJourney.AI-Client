@@ -91,6 +91,31 @@ export default {
 </script>
 
 <style scoped>
+.quiz-container {
+  margin-left: 200px !important;
+}
+.quiz-question {
+  position: relative;
+  background: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 30px;
+  width: 770px;
+  height: 150px;
+  border-radius: 5px;
+}
+
+.quiz-question h4 {
+  position: absolute;
+  top: -20%;
+  padding: 15px 20px;
+  color: var(--white-color);
+  background: #282634;
+  border-radius: 5px;
+}
 .rightanswer {
   background: var(--complete-color) !important;
   color: var(--white-color);
@@ -111,6 +136,7 @@ export default {
 
 .prev {
   padding: 10px;
+  width: 150px;
   background: #7f1d1d;
   border: none;
   color: var(--white-color);
@@ -123,6 +149,7 @@ export default {
 
 .next {
   padding: 10px;
+  width: 150px;
   background: #064e3b;
   border: none;
   color: var(--white-color);

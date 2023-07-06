@@ -62,6 +62,9 @@ export default {
 </script>
 
 <style scoped>
+.schedule-card:hover {
+  opacity: 0.7;
+}
 .schedule-card h4,
 .schedule-card span,
 .schedule-card hr,
