@@ -1,7 +1,7 @@
 <template>
   <Sidebar />
   <RouterView v-if="!isLoading"></RouterView>
-  <div v-if="isLoading" class="loader-xbox"></div>
+  
 </template>
 
 <script>

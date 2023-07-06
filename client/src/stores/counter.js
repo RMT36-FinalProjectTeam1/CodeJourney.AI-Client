@@ -33,6 +33,7 @@ export const useCounterStore = defineStore('counter', {
           data: { email, password }
         })
         localStorage.setItem('access_token', user.data.access_token)
+        localStorage.setItem('username', user.data.username)
         notify({
           title: 'Success',
           text: 'Login Success',
@@ -156,6 +157,7 @@ export const useCounterStore = defineStore('counter', {
     },
     async fetchSchedule() {
       try {
+        this.schedules = undefined
         let { data: schedules } = await axios({
           url: this.baseUrl + '/schedules',
           method: 'get',
@@ -188,7 +190,6 @@ export const useCounterStore = defineStore('counter', {
         })
         this.isFailLoadData = false
         this.scheduleDetail = details
-        // console.log(this.scheduleDetail)
       } catch (err) {
         this.isFailLoadData = true
         console.log(err)
@@ -209,6 +210,7 @@ export const useCounterStore = defineStore('counter', {
     },
     async fetchScheduleById(id) {
       try {
+        this.selectedSchedule = undefined
         const { data: schedule } = await axios({
           url: this.baseUrl + '/schedules/' + id,
           method: 'get',

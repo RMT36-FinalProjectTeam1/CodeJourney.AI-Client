@@ -69,7 +69,7 @@ export default {
     },
     handleDelete() {
       Swal.fire({
-        title: 'Are you sure?',
+        title: `Delete ${this.selectedSchedule.scheduleTitle} schedule?`,
         text: "You won't be able to revert this!",
         icon: 'warning',
         showCancelButton: true,
@@ -98,7 +98,7 @@ export default {
 }
 </script>
 <template>
-  <section class="dashboard">
+  <section v-if="selectedSchedule" class="dashboard">
     <div class="dashboard-container">
       <div class="dashboard-header">
         <div class="name-delete">
@@ -125,6 +125,7 @@ export default {
       </div>
     </div>
   </section>
+  <div v-if="!selectedSchedule" class="loader-xbox"></div>
 </template>
 
 <style scoped></style>
