@@ -4,12 +4,7 @@
     <label :for="'accordion-' + index">{{ ref.ref }}</label>
     <div class="content">
       <div class="references-link">
-        <a
-        v-for="link in ref.links"
-          :href="link.link"
-          target="_blank"
-          >{{ link.title }}</a
-        >
+        <a v-for="link in ref.links" :href="link.link" target="_blank">{{ link.title }}</a>
       </div>
     </div>
   </li>
@@ -29,7 +24,7 @@ export default {
     ...mapState(useCounterStore, ['scheduleDetail'])
   },
   created() {
-    const { reference } = this.scheduleDetail
+    const reference = { ...this.scheduleDetail.reference }
     delete reference.youtube
     for (const key in reference) {
       this.linkRefs.push({

@@ -83,7 +83,7 @@ export default {
     },
     handlePatchTask(sch_id, task_id) {
       Swal.fire({
-        title: 'Are you sure complete this schedule?',
+        title: 'Mark this task to complete?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',

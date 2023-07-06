@@ -1,5 +1,5 @@
 <template>
-  <section class="dashboard-v2">
+  <section v-if="schedules" class="dashboard-v2">
     <div class="dashboard-v2-container">
       <div class="dashboard-v2-header">
         <h1>All Schedules</h1>
@@ -28,6 +28,7 @@
       </div>
     </div>
   </section>
+  <div v-if="!schedules" class="loader-xbox"></div>
 </template>
 
 <script>
